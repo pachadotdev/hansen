@@ -1,0 +1,41 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# hansen <img src="man/figures/logo.svg" align="right" height="139" alt="" />
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+The goal of hansen is to provide the datasets used in the exercises of the book
+*Econometrics* by Bruce E. Hansen following the Tidy Data principles.
+
+## Installation
+
+You can install the development version of hansen like so:
+
+``` r
+remotes::install_github("pachadotdev/hansen")
+```
+
+## Usage
+
+As an example, here is how to get the description for the data from Mankiw,
+Romer and Well (1992), which is a dataset for economic growth analysis:
+
+```{r example}
+library(hansen)
+
+str(mrw1992)
+```

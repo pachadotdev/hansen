@@ -1,0 +1,56 @@
+Package: hansen
+Title: Datasets and Unofficial Solutions from 'Econometrics' by Bruce E. Hansen
+Version: 0.0.0.9000
+Authors@R: c(
+    person(
+        given = "Bruce E.",
+        family = "Hansen",
+        role = "cph",
+        email = "m.sepulveda@mail.utoronto.ca",
+        comment = c(ORCID = "0000-0003-1017-7574")
+    ),
+    person(
+        given = "Mauricio",
+        family = "Vargas Sepulveda",
+        role = c("aut", "cre"),
+        email = "m.sepulveda@mail.utoronto.ca",
+        comment = c(ORCID = "0000-0003-1017-7574")
+    )
+    )
+Description: This package provides datasets from the book 'Econometrics' by
+    Bruce E. Hansen <isbn:9780691235899> along with unofficial solutions. The
+    package and the solutions are not endorsed by the author. However, CRAN
+    policies require declaring the copyright holder. The original datasets were
+    adapted from multiple sources, including:
+    Arellano and Bond (1991) <doi:10.2307/2297968>;
+    Acemoglu, Johnson, and Robinson (2001) <doi:10.1257/aer.91.5.1369>;
+    Angrist and Krueger (1991) <doi:10.2307/2937954>;
+    Angrist and Lavy (1999) <doi:10.1162/003355399556061>;
+    Bernheim, Meer and Novarro <doi:10.1257/pol.20130351>;
+    the Bureau of Labor Statistics;
+    Card (1995) <doi:10.3386/w4483>;
+    Cox, Hansen and Jimenez (2004) <doi:10.1016/S0047-2727(03)00069-0>;
+    Card, Mas and Rothstein (2008) <doi:10.1162/qjec.2008.123.1.177>;
+    Duflo, Duppas and Kremer (2011) <doi:10.1257/aer.101.5.1739>;
+    Di Tella and Schargrodsky (2004) <doi:10.1257/000282804322970733>;
+    McCracken and Ng (2015) <doi:10.20955/wp.2015.012>;
+    Hall and Hall (1993) <doi:10.2307/2534602>;
+    Kilian (2009) <doi:10.1257/aer.99.3.1053>;
+    Koppelman and Wen (2000) <doi:10.1016/S0191-2615(99)00012-0>;
+    Wen and Koppelman (2001) <doi:10.1016/S0191-2615(00)00045-X>;
+    Ludwig and Miller (2007) <doi:10.1162/qjec.122.1.159>;
+    Mankiw, Romer and Weil (1992) <doi:10.2307/2118477>;
+    Nerlove (1963);
+    Papageorgiou, Saam and Schulte (2017) <doi:10.7910/DVN/67QCH2>;
+    Reinhardt and Rogoff (2010) <doi:10.1257/aer.100.2.573>.
+License: CC0
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.1
+Depends: 
+    R (>= 2.10)
+LazyData: true
+LazyDataCompression: xz
+Language: en-US
+Suggests: 
+    spelling

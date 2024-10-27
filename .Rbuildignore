@@ -1,0 +1,6 @@
+^LICENSE\.md$
+^README\.Rmd$
+^dev$
+^docs$
+^pkgdown$
+^README\.html$
