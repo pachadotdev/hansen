@@ -7,7 +7,7 @@ Authors@R: c(
         family = "Hansen",
         role = "cph",
         email = "m.sepulveda@mail.utoronto.ca",
-        comment = c(ORCID = "0000-0003-1017-7574")
+        comment = c(ORCID = "0000-0003-1017-7574", "Econometrics textbook")
     ),
     person(
         given = "Mauricio",
@@ -18,9 +18,8 @@ Authors@R: c(
     )
     )
 Description: This package provides datasets from the book 'Econometrics' by
-    Bruce E. Hansen <isbn:9780691235899> along with unofficial solutions. The
-    package and the solutions are not endorsed by the author. However, CRAN
-    policies require declaring the copyright holder. The original datasets were
+    Bruce E. Hansen <isbn:9780691235899> along with unofficial refactored code
+    using 'cpp11armadillo' to show C++ usage. The original datasets were
     adapted from multiple sources, including:
     Arellano and Bond (1991) <doi:10.2307/2297968>;
     Acemoglu, Johnson, and Robinson (2001) <doi:10.1257/aer.91.5.1369>;
@@ -43,14 +42,15 @@ Description: This package provides datasets from the book 'Econometrics' by
     Nerlove (1963);
     Papageorgiou, Saam and Schulte (2017) <doi:10.7910/DVN/67QCH2>;
     Reinhardt and Rogoff (2010) <doi:10.1257/aer.100.2.573>.
-License: CC0
+License: Apache License (>= 2)
 Encoding: UTF-8
-Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.3.1
-Depends: 
-    R (>= 2.10)
+Depends: R (>= 2.10)
+Suggests: spelling
 LazyData: true
 LazyDataCompression: xz
 Language: en-US
-Suggests: 
-    spelling
+NeedsCompilation: yes
+LinkingTo: cpp11, cpp11armadillo
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
+VignetteBuilder: knitr

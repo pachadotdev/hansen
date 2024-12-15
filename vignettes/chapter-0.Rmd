@@ -1,0 +1,38 @@
+---
+title: "How to use these vignettes"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{chapter-3}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+# Datasets
+
+The datasets were already processed and tidied following the steps in the
+original code by Professor Hansen. The goal is to go directly to writing
+functions in C++.
+
+# Notation
+
+In the textbook, the notation is of the form:
+
+$$
+Y_i = \beta_1 X_{i1} + \beta_2 X_{i2} + \ldots + \beta_k X_{ik} + \beta_0 + e_i,
+$$
+
+where $Y_i$ is the dependent variable, $X_{ij}$ are the independent variables,
+$\beta_j$ are the coefficients, and $e_i$ is the error term.
+
+In these notes I use the following notation:
+
+$$
+Y_i = \beta_0 + \beta_1 X_{i1} + \beta_2 X_{i2} + \ldots + \beta_k X_{ik} + e_i.
+$$

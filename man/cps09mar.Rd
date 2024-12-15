@@ -9,25 +9,44 @@ A data frame with 50,742 observations and 12 variables.
 \describe{
 \item{age}{Age in years, capped at 85}
 \item{female}{Indicator variable for female}
+\item{female_num}{Female indicator as numeric variable}
 \item{hisp}{Indicator variable for Spanish, Hispanic, or Latino}
+\item{hisp_num}{Hispanic indicator as numeric variable}
 \item{education}{Educational attainment}
+\item{education_num}{Education level as numeric variable}
 \item{earnings}{Total annual wage and salary earnings}
 \item{hours}{Number of hours worked per week}
 \item{week}{Number of weeks worked per year}
 \item{union}{1 if a member of a labor union, 0 otherwise}
-\item{uncov}{1 if covered by a union or employee association contract, 0 otherwise}
+\item{uncov}{1 if covered by a union or employee association contract,
+0 otherwise}
 \item{region}{Region of residence}
-\item{race}{Race, coded as follows}
+\item{region_num}{Region of residence as numeric variable}
+\item{race}{Race}
+\item{race_num}{Race as numeric variable}
 \item{marital}{Marital status, coded as follows}
+\item{marital_num}{Marital status as numeric variable}
 }
 }
 \source{
-Bureau of Labor Statistics, U.S. Census Bureau. March 2009 Current Population Survey. More information available at \url{https://www.census.gov/cps} and \url{https://dataferrett.census.gov}.
+Bureau of Labor Statistics, U.S. Census Bureau. March 2009 Current
+Population Survey. More information available at
+\url{https://www.census.gov/cps} and \url{https://dataferrett.census.gov}.
 }
 \usage{
 cps09mar
 }
 \description{
 Labor force characteristics for full-time employed U.S. civilians. The sample includes individuals who worked at least 36 hours per week for at least 48 weeks in the past year, excluding military personnel. The dataset contains 50,742 observations and 12 variables.
+}
+\examples{
+# Explore the categorical variables codification
+levels(cps09mar$female)
+levels(cps09mar$hisp)
+levels(cps09mar$education)
+levels(cps09mar$region)
+levels(cps09mar$race)
+levels(cps09mar$marital)
+
 }
 \keyword{datasets}

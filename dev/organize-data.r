@@ -223,29 +223,48 @@ cps09mar <- zap_formats(cps09mar)
 colnames(cps09mar) <- tolower(colnames(cps09mar))
 
 cps09mar <- cps09mar %>%
+  rename(
+    female_num = female,
+    hisp_num = hisp,
+    education_num = education,
+    region_num = region,
+    race_num = race,
+    marital_num = marital
+  ) %>%
   mutate(
-    female = factor(female, levels = c(0, 1), labels = c("No", "Yes")),
-    hisp = factor(hisp, levels = c(0, 1), labels = c("No", "Yes")),
-    education = factor(education, levels = c(0, 4, 6, 8, 9, 10, 11, 12, 13, 14, 16, 18, 20), labels = c(
+    female = factor(female_num, levels = c(0, 1), labels = c("No", "Yes")),
+    hisp = factor(hisp_num, levels = c(0, 1), labels = c("No", "Yes")),
+    education = factor(education_num, levels = c(0, 4, 6, 8, 9, 10, 11, 12, 13, 14, 16, 18, 20), labels = c(
       "Less than 1st grade", "1st to 4th grade", "5th or 6th grade", "7th or 8th grade", "9th grade",
       "10th grade", "11th grade or 12th grade without diploma", "High school graduate or equivalent",
       "Some college, no degree", "Associate degree (occupational/vocational programs included)",
       "Bachelor's degree (BA, AB, BS)", "Master's degree (MA, MS, MEng, MEd, MSW, MBA)",
       "Professional or Doctorate degree (MD, DDS, DVM, JD, PhD, EdD)"
     )),
-    region = factor(region, levels = c(1, 2, 3, 4), labels = c("Northeast", "Midwest", "South", "West")),
-    race = factor(race, levels = c(1:21), labels = c(
+    region = factor(region_num, levels = c(1, 2, 3, 4), labels = c("Northeast", "Midwest", "South", "West")),
+    race = factor(race_num, levels = c(1:21), labels = c(
       "White only", "Black only", "American Indian, Alaskan Native (AI) only", "Asian only",
       "Hawaiian/Pacific Islander (HP) only", "White-Black", "White-AI", "White-Asian", "White-HP",
       "Black-AI", "Black-Asian", "Black-HP", "AI-Asian", "Asian-HP", "White-Black-AI",
       "White-Black-Asian", "White-AI-Asian", "White-Asian-HP", "White-Black-AI-Asian",
       "2 or 3 races", "4 or 5 races"
     )),
-    marital = factor(marital, levels = c(1:7), labels = c(
+    marital = factor(marital_num, levels = c(1:7), labels = c(
       "Married - civilian spouse present", "Married - Armed Forces spouse present",
       "Married - spouse absent (except separated)", "Widowed", "Divorced", "Separated", "Never married"
     ))
   )
+
+cps09mar <- cps09mar %>%
+  select(
+    age, female, female_num, hisp, hisp_num, education, education_num,
+    earnings:uncov, region, region_num, race, race_num, marital, marital_num
+  )
+
+glimpse(cps09mar)
+
+cps09mar <- cps09mar %>%
+  mutate_if(is.double, as.integer)
 
 use_data(cps09mar, overwrite = TRUE, compress = "xz")
 

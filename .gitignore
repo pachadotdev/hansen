@@ -3,4 +3,9 @@
 *.dta
 *.xlsx
 *.pdf
+*.so
+*.o
 README.html
+/.quarto/
+dev/hansen-codes/
+.vscode

@@ -1,3 +1,7 @@
+#' @useDynLib hansen, .registration = TRUE
+#' @keywords internal
+"_PACKAGE"
+
 #' Arellano-Bond (1991) Panel Data for U.K. Companies
 #'
 #' Observations for 140 U.K. companies from 1976 to 1984.
@@ -5,28 +9,46 @@
 #' @format A data frame with 1,031 rows and 10 variables:
 #' \describe{
 #'   \item{year}{Year of observation}
-#'   \item{emp}{Employment (number of employees). Number of U.K. employees (Datastream variable 216)}
-#'   \item{wage}{Real wage per employee. A measure of average annual remuneration per employee was constructed by dividing U.K.
-#'   remuneration (Datastream variable 214) by the number of U.K. employees. This was adjusted to
-#'   take into account changes in average weekly hours worked in manufacturing industries (manual
-#'   and non-manual employees, 18 years and over, male and female, all occupations-source:
-#'   Department of Employment Gazette, various issues). A measure of real average hourly
-#'   remuneration was then obtained by deflating using an implicit value-added price deflator. These
-#'   implicit price deflators were calculated for each of our sub-sectors of manufacturing industry,
-#'   using the current price and constant price GDP data published in various Blue Books.}
-#'   \item{cap}{Gross capital stock. Denoting the historic cost book value of gross fixed assets (Datastream variable 330) by HCKt, we
-#'   obtain an estimate of the inflation-adjusted (or replacement cost) value of gross fixed assets
-#'   $RCK_t$ using the formula $RCK_t = HCK_t \\times P_t / P_\{t-A\}$ where $P$ is a price index for investment goods and
-#'   $A$ is an estimate of the average age of gross fixed assets. An implicit price deflator for gross fixed
-#'   investment by manufacturing industry was calculated using the current price and constant price
-#'   gross fixed investment data published in Economic Trends Annual Supplement (1986, p. 56). For
-#'   the purpose of this exercise a value of $A$ of 6 years was assumed. Our estimates of the gross
-#'   capital stock at replacement cost are then expressed in constant prices using our investment
+#'   \item{emp}{Employment (number of employees). Number of U.K. employees
+#'    (Datastream variable 216)}
+#'   \item{wage}{Real wage per employee. A measure of average annual
+#'    remuneration per employee was constructed by dividing U.K.
+#'   remuneration (Datastream variable 214) by the number of U.K. employees.
+#'    This was adjusted to
+#'   take into account changes in average weekly hours worked in manufacturing
+#'    industries (manual and non-manual employees, 18 years and over, male and
+#'    female, all occupations-source:
+#'   Department of Employment Gazette, various issues). A measure of real
+#'    average hourly
+#'   remuneration was then obtained by deflating using an implicit value-added
+#'    price deflator. These
+#'   implicit price deflators were calculated for each of our sub-sectors of
+#'    manufacturing industry,
+#'   using the current price and constant price GDP data published in various
+#'    Blue Books.}
+#'   \item{cap}{Gross capital stock. Denoting the historic cost book value of
+#'    gross fixed assets (Datastream variable 330) by HCKt, we
+#'   obtain an estimate of the inflation-adjusted (or replacement cost) value of
+#'    gross fixed assets
+#'   $RCK_t$ using the formula $RCK_t = HCK_t \\times P_t / P_\{t-A\}$ where $P$
+#'    is a price index for investment goods and
+#'   $A$ is an estimate of the average age of gross fixed assets. An implicit
+#'    price deflator for gross fixed
+#'   investment by manufacturing industry was calculated using the current price
+#'    and constant price
+#'   gross fixed investment data published in Economic Trends Annual Supplement
+#'    (1986, p. 56). For
+#'   the purpose of this exercise a value of $A$ of 6 years was assumed. Our
+#'    estimates of the gross
+#'   capital stock at replacement cost are then expressed in constant prices
+#'    using our investment
 #'   goods deflator.}
-#'   \item{indoutpt}{Industry output. An index of value-added output at constant factor cost was constructed for each of our 9 sub-
-#'   sectors of manufacturing industry, using data published in the Blue Book (1986, Table 2.4). The
-#'   15 sub-sectors of manufacturing for which this data is reported were combined into 9 using the
-#'   weights given in the Blue Book.}
+#'   \item{indoutpt}{Industry output. An index of value-added output at constant
+#'    factor cost was constructed for each of our 9 sub-
+#'   sectors of manufacturing industry, using data published in the Blue Book
+#'    (1986, Table 2.4). The
+#'   15 sub-sectors of manufacturing for which this data is reported were
+#'    combined into 9 using the weights given in the Blue Book.}
 #'   \item{n}{Log of employment}
 #'   \item{w}{Log of real wage}
 #'   \item{k}{Log of gross capital stock}
@@ -456,24 +478,45 @@
 #' \describe{
 #'   \item{age}{Age in years, capped at 85}
 #'   \item{female}{Indicator variable for female}
+#'   \item{female_num}{Female indicator as numeric variable}
 #'   \item{hisp}{Indicator variable for Spanish, Hispanic, or Latino}
+#'   \item{hisp_num}{Hispanic indicator as numeric variable}
 #'   \item{education}{Educational attainment}
+#'   \item{education_num}{Education level as numeric variable}
 #'   \item{earnings}{Total annual wage and salary earnings}
 #'   \item{hours}{Number of hours worked per week}
 #'   \item{week}{Number of weeks worked per year}
 #'   \item{union}{1 if a member of a labor union, 0 otherwise}
-#'   \item{uncov}{1 if covered by a union or employee association contract, 0 otherwise}
+#'   \item{uncov}{1 if covered by a union or employee association contract,
+#'    0 otherwise}
 #'   \item{region}{Region of residence}
-#'   \item{race}{Race, coded as follows}
+#'   \item{region_num}{Region of residence as numeric variable}
+#'   \item{race}{Race}
+#'   \item{race_num}{Race as numeric variable}
 #'   \item{marital}{Marital status, coded as follows}
+#'   \item{marital_num}{Marital status as numeric variable}
 #' }
 #'
-#' @source Bureau of Labor Statistics, U.S. Census Bureau. March 2009 Current Population Survey. More information available at <https://www.census.gov/cps> and <https://dataferrett.census.gov>.
+#' @examples
+#' # Explore the categorical variables codification
+#' levels(cps09mar$female)
+#' levels(cps09mar$hisp)
+#' levels(cps09mar$education)
+#' levels(cps09mar$region)
+#' levels(cps09mar$race)
+#' levels(cps09mar$marital)
+#' 
+#' @source Bureau of Labor Statistics, U.S. Census Bureau. March 2009 Current
+#'  Population Survey. More information available at
+#'  <https://www.census.gov/cps> and <https://dataferrett.census.gov>.
 "cps09mar"
 
 #' Duflo, Dupas, and Kremer (2011) Peer Effects and Teacher Incentives Dataset
 #'
-#' Randomized evaluation in Kenyan primary schools, focusing on student test scores, demographic information, and class characteristics. The dataset includes 5,795 observations with information on endline and follow-up test scores.
+#' Randomized evaluation in Kenyan primary schools, focusing on student test
+#'  scores, demographic information, and class characteristics. The dataset
+#'  includes 5,795 observations with information on endline and follow-up test
+#'  scores.
 #'
 #' @format A data frame with 5,795 observations and 62 variables.
 #' \describe{
