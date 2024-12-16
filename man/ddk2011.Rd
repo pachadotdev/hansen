@@ -11,28 +11,41 @@ A data frame with 5,795 observations and 62 variables.
 \item{schoolid}{ID of primary school}
 \item{district}{District}
 \item{bungoma}{Indicator if school is located in Bungoma District}
+\item{bungoma_num}{Bungoma indicator as numeric variable}
 \item{division}{Division}
 \item{zone}{Zone}
 \item{tracking}{Indicator if school is sampled for tracking}
+\item{tracking_num}{Tracking indicator as numeric variable}
 \item{sbm}{Indicator if school is sampled for School-Based Management}
+\item{sbm_num}{SBM indicator as numeric variable}
 \item{girl}{Sex of student (1 if female, 0 otherwise)}
+\item{girl_num}{Girl indicator as numeric variable}
 \item{agetest}{Age of student at time of test}
 \item{etpteacher}{Indicator if student is assigned to a contract teacher}
+\item{etpteacher_num}{ETP teacher indicator as numeric variable}
 \item{lowstream}{Indicator if student is assigned to lower-ability section (in tracking schools)}
+\item{lowstream_num}{Lowstream indicator as numeric variable}
 \item{stream_meanpercentile}{Mean standardized percentile of classmates at baseline}
 \item{sdstream_std_mark}{Standard deviation of baseline scores within stream (including own score)}
 \item{meanstream_std_mark}{Mean of baseline scores within stream (including own score)}
 \item{bottomhalf}{Indicator if student is in the bottom half of initial distribution}
+\item{bottomhalf_num}{Bottomhalf indicator as numeric variable}
 \item{tophalf}{Indicator if student is in the top half of initial distribution}
+\item{tophalf_num}{Tophalf indicator as numeric variable}
 \item{bottomquarter}{Indicator if student is in the bottom quarter of initial distribution}
+\item{bottomquarter_num}{Bottomquarter indicator as numeric variable}
 \item{secondquarter}{Indicator if student is in the second quarter of initial distribution}
+\item{secondquarter_num}{Secondquarter indicator as numeric variable}
 \item{thirdquarter}{Indicator if student is in the third quarter of initial distribution}
+\item{thirdquarter_num}{Thirdquarter indicator as numeric variable}
 \item{topquarter}{Indicator if student is in the top quarter of initial distribution}
+\item{topquarter_num}{Topquarter indicator as numeric variable}
 \item{std_mark}{Student's standardized mark in baseline exam}
 \item{percentile}{Student’s percentile in initial distribution}
 \item{realpercentile}{Student’s percentile in initial distribution (integer values)}
 \item{quantile5p}{Student's 20-quantile at baseline}
 \item{attrition}{Indicator if student was absent for endline test (Fall 2006)}
+\item{attrition_num}{Attrition indicator as numeric variable}
 \item{wordscore}{Endline score on word recognition (max: 24)}
 \item{sentscore}{Endline score on sentence recognition (max: 40)}
 \item{letterscore}{Endline score on letter recognition (max: 70)}
@@ -55,6 +68,7 @@ A data frame with 5,795 observations and 62 variables.
 \item{rmeanstream_std_lit}{Peers' mean literacy score at endline}
 \item{rsdstream_std_lit}{Peers' standard deviation in literacy score at endline}
 \item{r2_attrition}{Indicator if student was absent at long-term follow-up test (Fall 2007)}
+\item{r2_attrition_num}{R2 attrition indicator as numeric variable}
 \item{r2_age}{Age of student at long-term follow-up test}
 \item{r2_wordscore}{Score on word recognition at long-term follow-up}
 \item{r2_sentscore}{Score on sentence recognition at long-term follow-up}
@@ -78,6 +92,9 @@ Duflo, E., Dupas, P., & Kremer, M. (2011). "Peer Effects, Teacher Incentives, an
 ddk2011
 }
 \description{
-Randomized evaluation in Kenyan primary schools, focusing on student test scores, demographic information, and class characteristics. The dataset includes 5,795 observations with information on endline and follow-up test scores.
+Randomized evaluation in Kenyan primary schools, focusing on student test
+scores, demographic information, and class characteristics. The dataset
+includes 5,795 observations with information on endline and follow-up test
+scores.
 }
 \keyword{datasets}

@@ -294,6 +294,105 @@ ddk2011 <- ddk2011 %>%
     r2_attrition = factor(r2_attrition, levels = c(0, 1), labels = c("No", "Yes"))
   )
 
+ddk2011 <- ddk2011 %>%
+  mutate(
+    bungoma_num = case_when(
+      bungoma == "No" ~ 0,
+      bungoma == "Yes" ~ 1
+    ),
+    tracking_num = case_when(
+      tracking == "No" ~ 0,
+      tracking == "Yes" ~ 1
+    ),
+    sbm_num = case_when(
+      sbm == "No" ~ 0,
+      sbm == "Yes" ~ 1
+    ),
+    girl_num = case_when(
+      girl == "No" ~ 0,
+      girl == "Yes" ~ 1
+    ),
+    etpteacher_num = case_when(
+      etpteacher == "No" ~ 0,
+      etpteacher == "Yes" ~ 1
+    ),
+    lowstream_num = case_when(
+      lowstream == "No" ~ 0,
+      lowstream == "Yes" ~ 1
+    ),
+    bottomhalf_num = case_when(
+      bottomhalf == "No" ~ 0,
+      bottomhalf == "Yes" ~ 1
+    ),
+    tophalf_num = case_when(
+      tophalf == "No" ~ 0,
+      tophalf == "Yes" ~ 1
+    ),
+    bottomquarter_num = case_when(
+      bottomquarter == "No" ~ 0,
+      bottomquarter == "Yes" ~ 1
+    ),
+    secondquarter_num = case_when(
+      secondquarter == "No" ~ 0,
+      secondquarter == "Yes" ~ 1
+    ),
+    thirdquarter_num = case_when(
+      thirdquarter == "No" ~ 0,
+      thirdquarter == "Yes" ~ 1
+    ),
+    topquarter_num = case_when(
+      topquarter == "No" ~ 0,
+      topquarter == "Yes" ~ 1
+    ),
+    attrition_num = case_when(
+      attrition == "No" ~ 0,
+      attrition == "Yes" ~ 1
+    ),
+    r2_attrition_num = case_when(
+      r2_attrition == "No" ~ 0,
+      r2_attrition == "Yes" ~ 1
+    )
+  )
+
+ddk2011 <- ddk2011 %>%
+  select(
+    pupilid, schoolid, district, starts_with("bungoma"), division, zone,
+    starts_with("tracking"), sbm, girl, agetest, etpteacher,
+    starts_with("lowstream"),
+    stream_meanpercentile, sdstream_std_mark, meanstream_std_mark,
+    starts_with("bottomhalf"),
+    starts_with("tophalf"), starts_with("bottomquarter"),
+    starts_with("secondquarter"), starts_with("thirdquarter"),
+    starts_with("topquarter"), std_mark,
+    percentile, realpercentile, quantile5p, starts_with("attrition"), wordscore,
+    sentscore, letterscore, spellscore, sentscore24, letterscore24,
+    spellscore24, litscore,
+    additions_score, substractions_score, multiplications_score, mathscoreraw,
+    totalscore, rmeanstream_std_baselinemark, rsdstream_std_baselinemark,
+    rmeanstream_std_total, rsdstream_std_total, rmeanstream_std_math,
+    rsdstream_std_math, rmeanstream_std_lit, rsdstream_std_lit,
+    starts_with("r2_attrition"),
+    r2_age, r2_wordscore, r2_sentscore, r2_letterscore, r2_spellscore,
+    r2_sentscore24, r2_letterscore24, r2_spellscore24, r2_litscore,
+    r2_mathscoreraw, r2_additions_score, r2_substractions_score,
+    r2_multiplications_score, r2_totalscore,
+    sbm_num, girl_num, etpteacher_num
+  )
+
+ddk2011 <- ddk2011 %>%
+  mutate_if(is.double, function(x) {
+    ifelse(x == as.integer(x), as.integer(x), x)
+  })
+
+ddk2011 %>%
+  select_if(is.factor)
+
+ddk2011 <- ddk2011 %>%
+  mutate_if(is.character, as.factor)
+
+ddk2011 %>%
+  select(ends_with("_num"))
+
 use_data(ddk2011, overwrite = TRUE, compress = "xz")
 
 # ds2004 ----

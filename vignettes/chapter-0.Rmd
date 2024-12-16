@@ -2,7 +2,7 @@
 title: "How to use these vignettes"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{chapter-3}
+  %\VignetteIndexEntry{"How to use these vignettes"}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -36,3 +36,51 @@ In these notes I use the following notation:
 $$
 Y_i = \beta_0 + \beta_1 X_{i1} + \beta_2 X_{i2} + \ldots + \beta_k X_{ik} + e_i.
 $$
+
+# Code structure
+
+For the code, I use two functions, one with the suffix `_` that receives the
+data in C++ data types and another without the suffix that receives the data in
+R data types. The function with the suffix `_` is the one that does the actual
+work, and the function without the suffix is the one that converts the data from
+R to C++ data types and vice versa.
+
+```
+[C++ data type] my_function_([C++ data type] a, [C++ data type] b) {
+  ... C++ code ...
+
+  return result;
+}
+
+[[cpp11::register]] [R data type] my_function_r_([R data type] a,
+                                                 [R data type] b) {
+  [C++ data type] A = as_[C++ data type](a);
+  [C++ data type] B = as_[C++ data type](b);
+
+  [C++ data type] result = my_function_(A, B);
+
+  return as_[R data type](result);
+}
+```
+
+This allows to reuse functions in the C++ code more easily and also avoids
+overhead coping data between R and C++ multiple times.
+
+Please look at the code in the 'src' folder.
+
+The actual code uses a header used across all the scripts in order to avoid
+importing the libraries multiple times and it allows us to use the `ols_`
+function across all the scripts.
+
+The header is:
+
+```cpp
+#include <cpp11.hpp>
+#include <cpp11armadillo.hpp>
+#include <unordered_map>
+
+using namespace arma;
+using namespace cpp11;
+
+Mat<double> ols_(const Mat<double>& Y, const Mat<double>& X);
+```

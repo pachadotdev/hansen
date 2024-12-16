@@ -2,6 +2,71 @@
 #' @keywords internal
 "_PACKAGE"
 
+#' OLS estimation
+#' @param y dependent variable
+#' @param x independent variables
+#' @return matrix of OLS estimates
+#' @export
+ols <- function(y, x) {
+  ols_r_(y, x)
+}
+
+#' Influence function
+#' @inheritParams ols
+#' @return numerical value of influence function
+#' @export
+influence <- function(y, x) {
+  influence_r_(y, x)
+}
+
+#' OLS estimation with standard errors (Homoskedastic, White, HC1, HC2, HC3)
+#' @inheritParams ols
+#' @return matrix of OLS estimates with standard errors
+#' @export
+ols2 <- function(y, x) {
+  ols2_r_(y, x)
+}
+
+#' OLS estimation with HC2 cluster-robust standard errors
+#' @inheritParams ols
+#' @export
+cls <- function(y, x) {
+  cls_r_(y, x)
+}
+
+#' OLS estimation with DDK (2011) cluster-robust standard errors
+#' @inheritParams ols
+#' @param z cluster variable
+#' @export
+ddk <- function(y, x, z) {
+  ddk_r_(y, x, z)
+}
+
+#' OLS estimation with standard errors
+#' @inheritParams ols
+#' @return matrix of OLS estimates with standard errors
+#' @export
+ols3 <- function(y, x) {
+  ols3_r_(y, x)
+}
+
+#' Constrained regression
+#' @inheritParams ols
+#' @param r constraint matrix
+#' @return matrix of constrained regression estimates
+#' @export
+cns <- function(y, x, r) {
+  cns_r_(y, x, r)
+}
+
+#' Efficient Minimum Distance (EMD) regression
+#' @inheritParams cns
+#' @return matrix of EMD estimates
+#' @export
+emd <- function(y, x, r) {
+  emd_r_(y, x, r)
+}
+
 #' Arellano-Bond (1991) Panel Data for U.K. Companies
 #'
 #' Observations for 140 U.K. companies from 1976 to 1984.
@@ -57,36 +122,45 @@
 #' }
 #'
 #' @details
-#' The principal data source used is company accounts from Datastream International which
-#' provide accounts records of employment and remuneration (i.e., wage bill) for all U.K. quoted
-#' companies from 1976 onwards. We have used a sample of 140 companies with operations
-#' mainly in the U.K., whose main activity is manufacturing and for which we have at least 7
-#' continuous observations during the period 1976-1984. Where more than 7 observations are
-#' available we have exploited this additional information, so that our sample has the unbalanced
-#' structure described in Table A1.
+#' The principal data source used is company accounts from Datastream
+#' International which provide accounts records of employment and remuneration
+#' (i.e., wage bill) for all U.K. quoted companies from 1976 onwards. We have
+#' used a sample of 140 companies with operations mainly in the U.K., whose main
+#' activity is manufacturing and for which we have at least 7 continuous
+#' observations during the period 1976-1984. Where more than 7 observations are
+#' available we have exploited this additional information, so that our sample
+#' has the unbalanced structure described in Table A1.
 #'
-#' As well as requiring at least 7 continuous observations, companies were excluded from our
-#' sample for a number of reasons. We required complete records on a set of accounting variables
-#' including gross fixed assets, investment, inventories and sales as well as employment and
-#' remuneration. Companies that changed the date of their accounting year end by more than a
-#' few days were excluded, so that our data all refer to 12 month periods. We also excluded
-#' companies where either employment or one of our constructed measures of real wages, real
-#' capital, real inventories or real sales jumped by more than a factor of 3 from one year to the
-#' next. This filter will remove both those companies where data has been recorded erroneously
-#' and those companies that have experienced major mergers. Finally, we restricted our attention
-#' to companies that we could allocate to one of 9 broad sub-sectors of manufacturing industry
-#' using Datastream's breakdown of total sales by product available from 1980 onwards.
+#' As well as requiring at least 7 continuous observations, companies were
+#' excluded from our sample for a number of reasons. We required complete
+#' records on a set of accounting variables including gross fixed assets,
+#' investment, inventories and sales as well as employment and remuneration.
+#' Companies that changed the date of their accounting year end by more than a
+#' few days were excluded, so that our data all refer to 12 month periods. We
+#' also excluded companies where either employment or one of our constructed
+#' measures of real wages, real capital, real inventories or real sales jumped
+#' by more than a factor of 3 from one year to the next. This filter will remove
+#' both those companies where data has been recorded erroneously and those
+#' companies that have experienced major mergers. Finally, we restricted our
+#' attention to companies that we could allocate to one of 9 broad sub-sectors
+#' of manufacturing industry using Datastream's breakdown of total sales by
+#' product available from 1980 onwards.
 #'
-#' @source Arellano, Manual and Bond, Stephen. (1991). "Some Tests of Specification for Panel Data:
-#' Monte Carlo Evidence and an Application to Employment Equations," *Review of Economic Studies*, 277-297.
-#' Data available via Stata command `webuse abdata`.
+#' @source Arellano, Manual and Bond, Stephen. (1991). "Some Tests of
+#' Specification for Panel Data: Monte Carlo Evidence and an Application to
+#' Employment Equations," *Review of Economic Studies*, 277-297. Data available
+#' via Stata command `webuse abdata`.
 "ab1991"
 
-#' Acemoglou, Johnson, and Robinson (2001) Dataset on Colonial Origins of Comparative Development
+#' Acemoglou, Johnson, and Robinson (2001) Dataset on Colonial Origins of
+#' Comparative Development
 #'
-#' Colonial factors influencing economic development. Updated in 2012, it includes variables related to settler mortality, economic indicators, geographic data, and other socio-political metrics.
+#' Colonial factors influencing economic development. Updated in 2012, it
+#' includes variables related to settler mortality, economic indicators,
+#' geographic data, and other socio-political metrics.
 #'
-#' @format A data frame with 64 observations across 31 columns. Missing values are coded as NA.
+#' @format A data frame with 64 observations across 31 columns. Missing values
+#' are coded as NA.
 #' \describe{
 #'   \item{longname}{Full country name}
 #'   \item{shortnam}{3-letter country name}
@@ -111,22 +185,30 @@
 #'   \item{mortjam}{Mortality benchmarked to the Caribbean}
 #'   \item{logmortjam}{Log mortality benchmarked to the Caribbean}
 #'   \item{logmortcap250}{Log mortality capped at 250}
-#'   \item{logmortjam250}{Log mortality benchmarked to the Caribbean, capped at 250}
+#'   \item{logmortjam250}{Log mortality benchmarked to the Caribbean, capped at
+#'    250}
 #'   \item{wandcafrica}{Indicator for West and Central Africa}
 #'   \item{malfal94}{Falciparum malaria index, 1994}
-#'   \item{wacacontested}{Indicator for contested observations in West and Central Africa}
+#'   \item{wacacontested}{Indicator for contested observations in West and
+#'    Central Africa}
 #'   \item{mortnaval2250}{Mortality using naval stations, capped at 250}
 #'   \item{logmortnaval2250}{Log mortality using naval stations, capped at 250}
 #'   \item{mortnaval1250}{Mortality using naval stations, capped at 250}
 #'   \item{logmortnaval1250}{Log mortality using naval stations, capped at 250}
 #' }
 #'
-#' @source Acemoglou, D., Johnson, S., & Robinson, J. A. (2001). "The Colonial Origins of Comparative Development: An Empirical Investigation." American Economic Review. Updated version (2012): "The Colonial Origins of Comparative Development: An Empirical Investigation: Reply." Data available at <https://www.aeaweb.org/aer/data/oct2012/20110390_data.zip>
+#' @source Acemoglou, D., Johnson, S., & Robinson, J. A. (2001). "The Colonial
+#' Origins of Comparative Development: An Empirical Investigation." American
+#' Economic Review. Updated version (2012): "The Colonial Origins of Comparative
+#' Development: An Empirical Investigation: Reply." Data available at
+#' <https://www.aeaweb.org/aer/data/oct2012/20110390_data.zip>
 "ajr2001"
 
 #' Angrist and Krueger (1991) Dataset on Compulsory School Attendance
 #'
-#' Schooling and earnings based on a subsample of men born 1930-1939 from the 1980 census extract. The dataset contains variables related to age, education, earnings, marital status, and geographic information.
+#' Schooling and earnings based on a subsample of men born 1930-1939 from the
+#' 1980 census extract. The dataset contains variables related to age,
+#' education, earnings, marital status, and geographic information.
 #'
 #' @format A data frame with 329,509 observations across 10 columns.
 #' \describe{
@@ -142,12 +224,18 @@
 #'   \item{state}{State of birth}
 #' }
 #'
-#' @source Angrist, J., & Krueger, A. (1991). "Does Compulsory School Attendance Affect Schooling and Earnings?" *The Quarterly Journal of Economics*. Data available at <http://economics.mit.edu/faculty/angrist/data1/data/angkru1991>
+#' @source Angrist, J., & Krueger, A. (1991). "Does Compulsory School Attendance
+#' Affect Schooling and Earnings?" *The Quarterly Journal of Economics*. Data
+#' available at <http://economics.mit.edu/faculty/angrist/data1/data/angkru1991>
 "ak1991"
 
 #' Angrist and Lavy (1999) Dataset on Class Size and Scholastic Achievement
 #'
-#' Class sizes, scholastic achievement scores, and various classroom demographics for 4th and 5th grades. The dataset is derived from the merged files `final4.dta` and `final5.dta` with data cleaning adjustments to remove recording errors, missing observations, class sizes above 44, and enrollments below 6.
+#' Class sizes, scholastic achievement scores, and various classroom
+#' demographics for 4th and 5th grades. The dataset is derived from the merged
+#' files `final4.dta` and `final5.dta` with data cleaning adjustments to remove
+#' recording errors, missing observations, class sizes above 44, and enrollments
+#' below 6.
 #'
 #' @format A data frame with 4,067 classrooms and 31 variables.
 #' \describe{
@@ -184,14 +272,22 @@
 #'   \item{nmth5}{Number of students in math 5th grade in 1991}
 #' }
 #'
-#' @source Angrist, J., & Lavy, V. (1999). "Using Maimonides’ Rule to Estimate the Effect of Class Size on Scholastic Achievement." *The Quarterly Journal of Economics*. Data available at <https://economics.mit.edu/faculty/angrist/data1/data/anglavy99>
+#' @source Angrist, J., & Lavy, V. (1999). "Using Maimonides’ Rule to Estimate
+#' the Effect of Class Size on Scholastic Achievement." *The Quarterly Journal
+#' of Economics*. Data available at
+#' <https://economics.mit.edu/faculty/angrist/data1/data/anglavy99>
 "al1999"
 
-#' Bernheim, Meer, and Novarro (2016) Dataset on Liquor Consumption and Commitment Opportunities
+#' Bernheim, Meer, and Novarro (2016) Dataset on Liquor Consumption and
+#' Commitment Opportunities
 #'
-#' Liquor sale hours, alcohol consumption, and related state policies across 47 U.S. states from 1970 to 2007. The dataset includes off-premises and on-premises sales data for beer, wine, and liquor, along with other socioeconomic variables.
+#' Liquor sale hours, alcohol consumption, and related state policies across
+#' 47 U.S. states from 1970 to 2007. The dataset includes off-premises and
+#' on-premises sales data for beer, wine, and liquor, along with other
+#' socioeconomic variables.
 #'
-#' @format A data frame with 1,722 observations and multiple variables related to liquor sales and policies.
+#' @format A data frame with 1,722 observations and multiple variables related
+#' to liquor sales and policies.
 #' \describe{
 #'   \item{id}{Unique identifier for each observation}
 #'   \item{state}{State name}
@@ -271,14 +367,20 @@
 #'   \item{restsmokingban}{Ban on smoking in restaurants}
 #' }
 #'
-#' @source Bernheim, B. D., Meer, J., & Novarro, N. K. (2016). "Do Consumers Exploit Commitment Opportunities? Evidence from Natural Experiments Involving Liquor Consumption." *American Economic Journal: Economic Policy*, 8(1), 41-69. Data available at <https://www.aeaweb.org/articles?id=10.1257/pol.20130351>
+#' @source Bernheim, B. D., Meer, J., & Novarro, N. K. (2016). "Do Consumers
+#' Exploit Commitment Opportunities? Evidence from Natural Experiments Involving
+#' Liquor Consumption." *American Economic Journal: Economic Policy*, 8(1),
+#' 41-69. Data available at
+#' <https://www.aeaweb.org/articles?id=10.1257/pol.20130351>
 "bmn2016"
 
 #' Card (1995) Dataset on College Proximity and Return to Schooling
 #'
-#' Education, earnings, family background, and regional variables from the 1976 cross-section of the National Longitudinal Survey (NLS) of young men.
+#' Education, earnings, family background, and regional variables from the 1976
+#' cross-section of the National Longitudinal Survey (NLS) of young men.
 #'
-#' @format A data frame with 3,613 observations and 52 variables. Missing values are coded as NA.
+#' @format A data frame with 3,613 observations and 52 variables. Missing values
+#' are coded as NA.
 #' \describe{
 #'   \item{id}{Sequential ID, runs from 1 to 5225}
 #'   \item{nearc2}{Grew up near a 2-year college}
@@ -334,12 +436,18 @@
 #'   \item{libcrd14}{Indicator if had a library card at home at age 14}
 #' }
 #'
-#' @source Card, D. (1995). "Using Geographic Variation in College Proximity to Estimate the Return to Schooling." In L.N. Christofides, E.K. Grant, and R. Swidinsky (Eds.), *Aspects of Labor Market Behaviour: Essays in Honour of John Vanderkamp*. Toronto: University of Toronto Press. Data available at <http://davidcard.berkeley.edu/data_sets.html>
+#' @source Card, D. (1995). "Using Geographic Variation in College Proximity to
+#' Estimate the Return to Schooling." In L.N. Christofides, E.K. Grant, and R.
+#' Swidinsky (Eds.), *Aspects of Labor Market Behaviour: Essays in Honour of
+#' John Vanderkamp*. Toronto: University of Toronto Press. Data available at
+#' <http://davidcard.berkeley.edu/data_sets.html>
 "card1995"
 
 #' Cox, Hansen, and Jimenez (2004) Dataset on Private Transfers and Income
 #'
-#' Private transfers, income sources, and household demographics for urban Filipino households. The dataset contains 8,685 observations, with the top 2\% of income and observations with negative income removed.
+#' Private transfers, income sources, and household demographics for urban
+#' Filipino households. The dataset contains 8,685 observations, with the top
+#' 2\% of income and observations with negative income removed.
 #'
 #' @format A data frame with 8,685 observations and 28 variables.
 #' \describe{
@@ -373,12 +481,17 @@
 #'   \item{transfers}{Total transfers (tabroad + tdomestic + tinkind - tgifts)}
 #' }
 #'
-#' @source Cox, D., Hansen, B. E., & Jimenez, E. (2004). "How responsive are private transfers to income? Evidence from a laissez-faire economy." *Journal of Public Economics*, 88(10), 2193-2219.
+#' @source Cox, D., Hansen, B. E., & Jimenez, E. (2004). "How responsive are
+#' private transfers to income? Evidence from a laissez-faire economy." *Journal
+#' of Public Economics*, 88(10), 2193-2219.
 "chj2004"
 
 #' Card and Krueger (1994) Dataset on Minimum Wages and Employment
 #'
-#' Employment and wage characteristics in fast-food restaurants across New Jersey and Pennsylvania. The dataset includes information on store characteristics, wages, and employee counts, reorganized so that each row represents one observation per store across two survey waves.
+#' Employment and wage characteristics in fast-food restaurants across New
+#' Jersey and Pennsylvania. The dataset includes information on store
+#' characteristics, wages, and employee counts, reorganized so that each row
+#' represents one observation per store across two survey waves.
 #'
 #' @format A data frame with 820 observations and 26 variables, representing 410 stores surveyed twice.
 #' \describe{
@@ -410,12 +523,18 @@
 #'   \item{time}{Survey wave indicator}
 #' }
 #'
-#' @source Card, D., & Krueger, A. B. (1994). "Minimum Wages and Employment: A Case Study of the Fast-Food Industry in New Jersey and Pennsylvania." *American Economic Review*. Data available at <http://davidcard.berkeley.edu/data_sets.html>
+#' @source Card, D., & Krueger, A. B. (1994). "Minimum Wages and Employment: A
+#' Case Study of the Fast-Food Industry in New Jersey and Pennsylvania."
+#' *American Economic Review*. Data available at
+#' <http://davidcard.berkeley.edu/data_sets.html>
 "ck1994"
 
 #' Card, Mas, and Rothstein (2008) Segregation Dynamics Dataset
 #'
-#' Demographic, economic, and housing characteristics across U.S. census tracts from 1970 to 2000. The dataset includes variables related to population composition, income, housing, and transportation, reorganized from the original replication files.
+#' Demographic, economic, and housing characteristics across U.S. census tracts
+#' from 1970 to 2000. The dataset includes variables related to population
+#' composition, income, housing, and transportation, reorganized from the
+#' original replication files.
 #'
 #' @format A data frame with 48,643 observations (census tracts) and 46 variables.
 #' \describe{
@@ -467,7 +586,9 @@
 #'   \item{oneunit_90}{Fraction of single-unit homes, 1990}
 #' }
 #'
-#' @source Card, D., Mas, A., & Rothstein, J. (2008). "Tipping and the Dynamics of Segregation." *Quarterly Journal of Economics*. Data available at <https://berkeley.app.box.com/v/tippingreplication>
+#' @source Card, D., Mas, A., & Rothstein, J. (2008). "Tipping and the Dynamics
+#' of Segregation." *Quarterly Journal of Economics*. Data available at
+#' <https://berkeley.app.box.com/v/tippingreplication>
 "cmr2008"
 
 #' Current Population Survey (March 2009) Labor Force Characteristics Dataset
@@ -505,7 +626,7 @@
 #' levels(cps09mar$region)
 #' levels(cps09mar$race)
 #' levels(cps09mar$marital)
-#' 
+#'
 #' @source Bureau of Labor Statistics, U.S. Census Bureau. March 2009 Current
 #'  Population Survey. More information available at
 #'  <https://www.census.gov/cps> and <https://dataferrett.census.gov>.
@@ -524,34 +645,61 @@
 #'   \item{schoolid}{ID of primary school}
 #'   \item{district}{District}
 #'   \item{bungoma}{Indicator if school is located in Bungoma District}
+#'   \item{bungoma_num}{Bungoma indicator as numeric variable}
 #'   \item{division}{Division}
 #'   \item{zone}{Zone}
 #'   \item{tracking}{Indicator if school is sampled for tracking}
+#'   \item{tracking_num}{Tracking indicator as numeric variable}
 #'   \item{sbm}{Indicator if school is sampled for School-Based Management}
+#'   \item{sbm_num}{SBM indicator as numeric variable}
 #'   \item{girl}{Sex of student (1 if female, 0 otherwise)}
+#'   \item{girl_num}{Girl indicator as numeric variable}
 #'   \item{agetest}{Age of student at time of test}
 #'   \item{etpteacher}{Indicator if student is assigned to a contract teacher}
-#'   \item{lowstream}{Indicator if student is assigned to lower-ability section (in tracking schools)}
-#'   \item{stream_meanpercentile}{Mean standardized percentile of classmates at baseline}
-#'   \item{sdstream_std_mark}{Standard deviation of baseline scores within stream (including own score)}
-#'   \item{meanstream_std_mark}{Mean of baseline scores within stream (including own score)}
-#'   \item{bottomhalf}{Indicator if student is in the bottom half of initial distribution}
-#'   \item{tophalf}{Indicator if student is in the top half of initial distribution}
-#'   \item{bottomquarter}{Indicator if student is in the bottom quarter of initial distribution}
-#'   \item{secondquarter}{Indicator if student is in the second quarter of initial distribution}
-#'   \item{thirdquarter}{Indicator if student is in the third quarter of initial distribution}
-#'   \item{topquarter}{Indicator if student is in the top quarter of initial distribution}
+#'   \item{etpteacher_num}{ETP teacher indicator as numeric variable}
+#'   \item{lowstream}{Indicator if student is assigned to lower-ability section
+#'    (in tracking schools)}
+#'   \item{lowstream_num}{Lowstream indicator as numeric variable}
+#'   \item{stream_meanpercentile}{Mean standardized percentile of classmates at
+#'    baseline}
+#'   \item{sdstream_std_mark}{Standard deviation of baseline scores within
+#'    stream (including own score)}
+#'   \item{meanstream_std_mark}{Mean of baseline scores within stream (including
+#'    own score)}
+#'   \item{bottomhalf}{Indicator if student is in the bottom half of initial
+#'    distribution}
+#'   \item{bottomhalf_num}{Bottomhalf indicator as numeric variable}
+#'   \item{tophalf}{Indicator if student is in the top half of initial
+#'    distribution}
+#'   \item{tophalf_num}{Tophalf indicator as numeric variable}
+#'   \item{bottomquarter}{Indicator if student is in the bottom quarter of
+#'    initial distribution}
+#'   \item{bottomquarter_num}{Bottomquarter indicator as numeric variable}
+#'   \item{secondquarter}{Indicator if student is in the second quarter of
+#'    initial distribution}
+#'   \item{secondquarter_num}{Secondquarter indicator as numeric variable}
+#'   \item{thirdquarter}{Indicator if student is in the third quarter of initial
+#'    distribution}
+#'   \item{thirdquarter_num}{Thirdquarter indicator as numeric variable}
+#'   \item{topquarter}{Indicator if student is in the top quarter of initial
+#'    distribution}
+#'   \item{topquarter_num}{Topquarter indicator as numeric variable}
 #'   \item{std_mark}{Student's standardized mark in baseline exam}
 #'   \item{percentile}{Student’s percentile in initial distribution}
-#'   \item{realpercentile}{Student’s percentile in initial distribution (integer values)}
+#'   \item{realpercentile}{Student’s percentile in initial distribution (integer
+#'    values)}
 #'   \item{quantile5p}{Student's 20-quantile at baseline}
-#'   \item{attrition}{Indicator if student was absent for endline test (Fall 2006)}
+#'   \item{attrition}{Indicator if student was absent for endline test (Fall
+#'    2006)}
+#'   \item{attrition_num}{Attrition indicator as numeric variable}
 #'   \item{wordscore}{Endline score on word recognition (max: 24)}
 #'   \item{sentscore}{Endline score on sentence recognition (max: 40)}
 #'   \item{letterscore}{Endline score on letter recognition (max: 70)}
 #'   \item{spellscore}{Endline score on spelling (max: 10)}
-#'   \item{sentscore24}{Rescaled endline score on sentence recognition (0-24 scale)}
-#'   \item{letterscore24}{Rescaled endline score on letter recognition (0-24 scale)}
+#'   \item{sentscore24}{Rescaled endline score on sentence recognition (0-24
+#'    scale)}
+#'   \item{letterscore24}{Rescaled endline score on letter recognition (0-24
+#'    scale)}
 #'   \item{spellscore24}{Rescaled endline score on spelling (0-24 scale)}
 #'   \item{litscore}{Total endline score on literacy test}
 #'   \item{additions_score}{Endline score on additions section}
@@ -559,37 +707,56 @@
 #'   \item{multiplications_score}{Endline score on multiplications section}
 #'   \item{mathscoreraw}{Total endline score on math test}
 #'   \item{totalscore}{Total endline score}
-#'   \item{rmeanstream_std_baselinemark}{Peers' mean score at baseline, excluding own score}
-#'   \item{rsdstream_std_baselinemark}{Peers' standard deviation in baseline score, excluding own score}
-#'   \item{rmeanstream_std_total}{Peers' mean total score at endline (Fall 2006)}
-#'   \item{rsdstream_std_total}{Peers' standard deviation in total score at endline}
+#'   \item{rmeanstream_std_baselinemark}{Peers' mean score at baseline,
+#'    excluding own score}
+#'   \item{rsdstream_std_baselinemark}{Peers' standard deviation in baseline
+#'    score, excluding own score}
+#'   \item{rmeanstream_std_total}{Peers' mean total score at endline (Fall
+#'    2006)}
+#'   \item{rsdstream_std_total}{Peers' standard deviation in total score at
+#'    endline}
 #'   \item{rmeanstream_std_math}{Peers' mean math score at endline}
-#'   \item{rsdstream_std_math}{Peers' standard deviation in math score at endline}
+#'   \item{rsdstream_std_math}{Peers' standard deviation in math score at
+#'    endline}
 #'   \item{rmeanstream_std_lit}{Peers' mean literacy score at endline}
-#'   \item{rsdstream_std_lit}{Peers' standard deviation in literacy score at endline}
-#'   \item{r2_attrition}{Indicator if student was absent at long-term follow-up test (Fall 2007)}
+#'   \item{rsdstream_std_lit}{Peers' standard deviation in literacy score at
+#'    endline}
+#'   \item{r2_attrition}{Indicator if student was absent at long-term follow-up
+#'    test (Fall 2007)}
+#'   \item{r2_attrition_num}{R2 attrition indicator as numeric variable}
 #'   \item{r2_age}{Age of student at long-term follow-up test}
 #'   \item{r2_wordscore}{Score on word recognition at long-term follow-up}
 #'   \item{r2_sentscore}{Score on sentence recognition at long-term follow-up}
 #'   \item{r2_letterscore}{Score on letter recognition at long-term follow-up}
 #'   \item{r2_spellscore}{Score on spelling at long-term follow-up}
-#'   \item{r2_sentscore24}{Rescaled score on sentence recognition at long-term follow-up}
-#'   \item{r2_letterscore24}{Rescaled score on letter recognition at long-term follow-up}
+#'   \item{r2_sentscore24}{Rescaled score on sentence recognition at long-term
+#'    follow-up}
+#'   \item{r2_letterscore24}{Rescaled score on letter recognition at long-term
+#'    follow-up}
 #'   \item{r2_spellscore24}{Rescaled score on spelling at long-term follow-up}
 #'   \item{r2_litscore}{Total literacy score at long-term follow-up}
 #'   \item{r2_mathscoreraw}{Total math score at long-term follow-up}
-#'   \item{r2_additions_score}{Score on additions section at long-term follow-up}
-#'   \item{r2_substractions_score}{Score on subtractions section at long-term follow-up}
-#'   \item{r2_multiplications_score}{Score on multiplications section at long-term follow-up}
+#'   \item{r2_additions_score}{Score on additions section at long-term
+#'    follow-up}
+#'   \item{r2_substractions_score}{Score on subtractions section at long-term
+#'    follow-up}
+#'   \item{r2_multiplications_score}{Score on multiplications section at
+#'    long-term follow-up}
 #'   \item{r2_totalscore}{Total score at long-term follow-up}
 #' }
 #'
-#' @source Duflo, E., Dupas, P., & Kremer, M. (2011). "Peer Effects, Teacher Incentives, and the Impact of Tracking: Evidence from a Randomized Evaluation in Kenya." *American Economic Review*, 101(5), 1739-1774. Data available at <https://dataverse.harvard.edu/dataset.xhtml?persistentId=hdl:1902.1/16787>
+#' @source Duflo, E., Dupas, P., & Kremer, M. (2011). "Peer Effects, Teacher
+#'  Incentives, and the Impact of Tracking: Evidence from a Randomized
+#'  Evaluation in Kenya." *American Economic Review*, 101(5), 1739-1774. Data
+#'  available at
+#'  <https://dataverse.harvard.edu/dataset.xhtml?persistentId=hdl:1902.1/16787>
 "ddk2011"
 
 #' DiTella and Schargrodsky (2004) Police Presence and Crime Dataset
 #'
-#' Police presence, neighborhood characteristics, and crime levels across city blocks in Buenos Aires. The data spans from April 1994 through December 1994, with monthly observations on 7,884 city blocks.
+#' Police presence, neighborhood characteristics, and crime levels across city
+#' blocks in Buenos Aires. The data spans from April 1994 through December 1994,
+#' with monthly observations on 7,884 city blocks.
 #'
 #' @format A data frame with 7,884 observations and 10 variables.
 #' \describe{
@@ -607,14 +774,21 @@
 #'   \item{oneblock}{Indicator if there is a Jewish institution one block away}
 #' }
 #'
-#' @source Di Tella, R., & Schargrodsky, E. (2004). "Do Police Reduce Crime? Estimates Using the Allocation of Police Forces After a Terrorist Attack." *American Economic Review*. Data available at <https://www.aeaweb.org/aer/data/march2004_ditella_data.zip>
+#' @source Di Tella, R., & Schargrodsky, E. (2004). "Do Police Reduce Crime?
+#' Estimates Using the Allocation of Police Forces After a Terrorist Attack."
+#' *American Economic Review*. Data available at
+#' <https://www.aeaweb.org/aer/data/march2004_ditella_data.zip>
 "ds2004"
 
 #' McCracken and Ng (2015) FRED-MD Monthly Database for Macroeconomic Research
 #'
-#' Monthly collection of major U.S. macroeconomic variables maintained by the St. Louis Federal Reserve Bank. This dataset provides key economic indicators for various sectors, including output, labor, housing, consumption, interest rates, and stock markets. Includes data from 1959 to 2017.
+#' Monthly collection of major U.S. macroeconomic variables maintained by the
+#' St. Louis Federal Reserve Bank. This dataset provides key economic indicators
+#' for various sectors, including output, labor, housing, consumption, interest
+#' rates, and stock markets. Includes data from 1959 to 2017.
 #'
-#' @format A data frame with 708 observations and 129 variables across various economic indicators.
+#' @format A data frame with 708 observations and 129 variables across various
+#' economic indicators.
 #' \describe{
 #'   \item{rpi}{Real personal income}
 #'   \item{w875rx1}{Real personal income excluding transfer receipts}
@@ -622,7 +796,8 @@
 #'   \item{cmrmtsplx}{Real manufacturing and trade industries sales}
 #'   \item{retailx}{Retail and food services sales}
 #'   \item{indpro}{Industrial Production Index}
-#'   \item{ipfpnss}{Industrial production: Final products and nonindustrial supplies}
+#'   \item{ipfpnss}{Industrial production: Final products and nonindustrial
+#'    supplies}
 #'   \item{ipfinal}{Industrial Production - Final Products (Market Group)}
 #'   \item{ipcongd}{Industrial production: Consumer goods}
 #'   \item{ipdcongd}{Industrial production: Durable consumer goods}
@@ -748,25 +923,34 @@
 #' }
 #'
 #' @details
-#' Most of the variables are provided in the most basic format, so transformations are required for typical uses (e.g., for growth rates).
+#' Most of the variables are provided in the most basic format, so
+#' transformations are required for typical uses (e.g., for growth rates).
 #'
-#' @source McCracken, M. W., & Ng, S. (2015). "FRED-MD: A Monthly Database for Macroeconomic Research." Data available at <https://research.stlouisfed.org/econ/mccracken/fred-databases/>
+#' @source McCracken, M. W., & Ng, S. (2015). "FRED-MD: A Monthly Database for
+#' Macroeconomic Research." Data available at
+#' <https://research.stlouisfed.org/econ/mccracken/fred-databases/>
 "fred_md"
 
 #' McCracken and Ng (2015) FRED-QD Quarterly Database for Macroeconomic Research
 #'
-#' Quarterly collection of major U.S. macroeconomic variables maintained by the St. Louis Federal Reserve Bank. This dataset provides key economic indicators across sectors such as output, labor, housing, consumption, interest rates, money, productivity, prices, and exchange rates. Includes data from 1959 onward.
+#' Quarterly collection of major U.S. macroeconomic variables maintained by the
+#' St. Louis Federal Reserve Bank. This dataset provides key economic indicators
+#' across sectors such as output, labor, housing, consumption, interest rates,
+#' money, productivity, prices, and exchange rates. Includes data from 1959
+#' onward.
 #'
 #' @format A data frame with 236 observations and 249 variables:
 #' \describe{
 #'   \item{gdpc1}{Real Gross Domestic Product}
 #'   \item{pcecc96}{Real Personal Consumption Expenditures}
 #'   \item{pcdgx}{Real Personal Consumption Expenditures: Durable Goods}
-#'   \item{pcesvx}{Real Personal Consumption Expenditures: Services excluding food and energy}
+#'   \item{pcesvx}{Real Personal Consumption Expenditures: Services excluding
+#'    food and energy}
 #'   \item{pcndx}{Real Personal Consumption Expenditures: Nondurable Goods}
 #'   \item{gpdic1}{Gross Private Domestic Investment}
 #'   \item{fpix}{Fixed Private Investment}
-#'   \item{y033rc1q027sbeax}{Real Gross Private Domestic Investment: Residential}
+#'   \item{y033rc1q027sbeax}{Real Gross Private Domestic Investment:
+#'    Residential}
 #'   \item{pnfix}{Private Nonresidential Fixed Investment}
 #'   \item{prfix}{Private Residential Fixed Investment}
 #'   \item{a014re1q156nbea}{Government Consumption Expenditures}
@@ -879,10 +1063,12 @@
 #'   \item{difsrg3q086sbea}{Insurance Services Expenditures}
 #'   \item{dotsrg3q086sbea}{Other Services Expenditures}
 #'   \item{cpiaucsl}{Consumer Price Index for All Urban Consumers: All Items}
-#'   \item{cpilfesl}{Consumer Price Index for All Urban Consumers: All Items Less Food and Energy}
+#'   \item{cpilfesl}{Consumer Price Index for All Urban Consumers: All Items
+#'    Less Food and Energy}
 #'   \item{wpsfd49207}{Producer Price Index by Commodity for Crude Materials}
 #'   \item{ppiaco}{Producer Price Index by Commodity}
-#'   \item{wpsfd49502}{Producer Price Index by Commodity for Intermediate Materials}
+#'   \item{wpsfd49502}{Producer Price Index by Commodity for Intermediate
+#'    Materials}
 #'   \item{wpsfd4111}{Producer Price Index by Commodity for Finished Goods}
 #'   \item{ppiidc}{Producer Price Index: Industrial Commodities}
 #'   \item{wpsid61}{Producer Price Index for Finished Goods}
@@ -963,7 +1149,8 @@
 #'   \item{tb3smffm}{3-Month Treasury Minus Fed Funds Rate Spread}
 #'   \item{t5yffm}{5-Year Treasury Minus Fed Funds Rate Spread}
 #'   \item{aaaffm}{Moody's AAA Corporate Bond Minus Fed Funds Rate Spread}
-#'   \item{wpsid62}{Producer Price Index by Commodity for Finished Goods: Consumer}
+#'   \item{wpsid62}{Producer Price Index by Commodity for Finished Goods:
+#'    Consumer}
 #'   \item{ppicmm}{Producer Price Index: Commodities}
 #'   \item{cpiappsl}{Consumer Price Index for All Urban Consumers}
 #'   \item{cpitrnsl}{CPI: Transportation}
@@ -993,16 +1180,21 @@
 #'   \item{nasdaqcom}{NASDAQ Composite Index}
 #'   \item{cusr0000sehc}{CPI for All Urban Consumers: Education}
 #'   \item{tlbsnncbx}{Total Liabilities for Nonfinancial Corporate Business}
-#'   \item{tlbsnncbbdix}{Total Liabilities for Nonfinancial Corporate Business, Billion Dollars}
+#'   \item{tlbsnncbbdix}{Total Liabilities for Nonfinancial Corporate Business,
+#'    Billion Dollars}
 #'   \item{ttaabsnncbx}{Total Assets for Nonfinancial Corporate Business}
 #'   \item{tnwmvbsnncbx}{Total Net Worth for Nonfinancial Corporate Business}
-#'   \item{tnwmvbsnncbbdix}{Total Net Worth for Nonfinancial Corporate Business, Billion Dollars}
+#'   \item{tnwmvbsnncbbdix}{Total Net Worth for Nonfinancial Corporate Business,
+#'    Billion Dollars}
 #'   \item{tlbsnnbx}{Total Liabilities for Nonfinancial Noncorporate Business}
-#'   \item{tlbsnnbbdix}{Total Liabilities for Nonfinancial Noncorporate Business, Billion Dollars}
+#'   \item{tlbsnnbbdix}{Total Liabilities for Nonfinancial Noncorporate
+#'    Business, Billion Dollars}
 #'   \item{tabsnnbx}{Total Assets for Nonfinancial Noncorporate Business}
 #'   \item{tnwbsnnbx}{Total Net Worth for Nonfinancial Noncorporate Business}
-#'   \item{tnwbsnnbbdix}{Total Net Worth for Nonfinancial Noncorporate Business, Billion Dollars}
-#'   \item{cncfx}{Real Personal Consumption Expenditures: Non-Durables and Durables}
+#'   \item{tnwbsnnbbdix}{Total Net Worth for Nonfinancial Noncorporate Business,
+#'    Billion Dollars}
+#'   \item{cncfx}{Real Personal Consumption Expenditures: Non-Durables and
+#'    Durables}
 #'   \item{sp500}{S&P 500 Index}
 #'   \item{spindust}{S&P Industrial Index}
 #'   \item{spdivyield}{S&P Dividend Yield}
@@ -1011,109 +1203,185 @@
 #' }
 #'
 #' @details
-#' Most of the variables are provided in the most basic format, so transformations are required for typical uses (e.g., for growth rates).
+#' Most of the variables are provided in the most basic format, so
+#' transformations are required for typical uses (e.g., for growth rates).
 #'
-#' @source McCracken, M. W., & Ng, S. "FRED-QD: A Quarterly Database for Macroeconomic Research." Data available at <https://research.stlouisfed.org/econ/mccracken/fred-databases/>
+#' @source McCracken, M. W., & Ng, S. "FRED-QD: A Quarterly Database for
+#' Macroeconomic Research." Data available at
+#' <https://research.stlouisfed.org/econ/mccracken/fred-databases/>
 "fred_qd"
 
 #' Hall and Hall (1993) Dataset Documentation
 #'
-#' Detailed financial metrics for U.S. corporations, focusing on investment, financial ratios, and stock performance. Includes essential economic indicators that capture corporate financial health and performance for each year. Data spans multiple years and includes various financial metrics essential for corporate analysis.
+#' Detailed financial metrics for U.S. corporations, focusing on investment,
+#' financial ratios, and stock performance. Includes essential economic
+#' indicators that capture corporate financial health and performance for each
+#' year. Data spans multiple years and includes various financial metrics
+#' essential for corporate analysis.
 #'
 #' @format A data frame with 27,566 observations and 23 variables:
 #' \describe{
-#'   \item{cusip}{Committee on Uniform Security Identification Procedures (CUSIP) code, identifying each firm. The first six digits represent the firm code number.}
+#'   \item{cusip}{Committee on Uniform Security Identification Procedures
+#'    (CUSIP) code, identifying each firm. The first six digits represent the
+#'    firm code number.}
 #'   \item{year}{The year of the data, represented as a two-digit value.}
-#'   \item{pstar}{The present discounted value (PDV) of dividends anticipated on a firm's common stock in the future, discounted at the risk-free rate plus an overall risk premium (approximately 4 percent).}
-#'   \item{z0}{The first term in the linearized expression for z (as outlined in Appendix A of the paper).}
-#'   \item{pricef}{The actual price of common stock at the end of the fiscal year.}
+#'   \item{pstar}{The present discounted value (PDV) of dividends anticipated on
+#'    a firm's common stock in the future, discounted at the risk-free rate plus
+#'    an overall risk premium (approximately 4 percent).}
+#'   \item{z0}{The first term in the linearized expression for z (as outlined in
+#'    Appendix A of the paper).}
+#'   \item{pricef}{The actual price of common stock at the end of the fiscal
+#'    year.}
 #'   \item{divf}{The dividends paid during the fiscal year.}
 #'   \item{rnda}{Research and development (R&D) expenditure to assets ratio.}
 #'   \item{adva}{Advertising expenditure to assets ratio.}
-#'   \item{fyr}{The month in which the fiscal year ends, ranging from 1 (January) to 12 (December).}
-#'   \item{ardsic}{A modified 2.5-digit Standard Industrial Classification (SIC) code, roughly similar to those used in Bound, Cummins, Griliches, Hall, and Jaffe (1984) in "Who Does R&D and Who Patents?"}
+#'   \item{fyr}{The month in which the fiscal year ends, ranging from 1
+#'    (January) to 12 (December).}
+#'   \item{ardsic}{A modified 2.5-digit Standard Industrial Classification (SIC)
+#'    code, roughly similar to those used in Bound, Cummins, Griliches, Hall,
+#'    and Jaffe (1984) in "Who Does R&D and Who Patents?"}
 #'   \item{exityr}{The year the firm exited from the sample.}
-#'   \item{inva}{Investment to assets ratio, reflecting the proportion of investment relative to the company's total assets.}
-#'   \item{cfa}{Cash flow to assets ratio, indicating the cash-generating efficiency of the assets.}
-#'   \item{debta}{Long-term debt to assets ratio, a measure of a company's financial leverage.}
+#'   \item{inva}{Investment to assets ratio, reflecting the proportion of
+#'    investment relative to the company's total assets.}
+#'   \item{cfa}{Cash flow to assets ratio, indicating the cash-generating
+#'    efficiency of the assets.}
+#'   \item{debta}{Long-term debt to assets ratio, a measure of a company's
+#'    financial leverage.}
 #'   \item{sales}{Annual sales revenue (in millions of dollars).}
-#'   \item{netcap}{The adjusted book value of assets, accounting for plant, property, equipment, inventories, and other components, with inflation adjustments as per Brainard, Shoven, and Weiss's approach.}
+#'   \item{netcap}{The adjusted book value of assets, accounting for plant,
+#'    property, equipment, inventories, and other components, with inflation
+#'    adjustments as per Brainard, Shoven, and Weiss's approach.}
 #'   \item{earnsh}{Reported earnings per share (EPS).}
-#'   \item{nyseamex}{Indicator variable set to 1 if the firm is listed on the New York Stock Exchange (NYSE) or American Stock Exchange (AMEX), otherwise 0.}
-#'   \item{h0}{Instrumental variable as specified in equation B-5 of the referenced paper.}
-#'   \item{h1}{Another instrumental variable as specified in equation B-5 of the referenced paper.}
-#'   \item{vala}{Total market value to assets ratio, often referred to as Tobin's Q.}
-#'   \item{oneper}{One-period rate of return, adjusted for non-diversifiable discounting.}
-#'   \item{sharef}{Shares of common stock outstanding, represented in thousands.}
+#'   \item{nyseamex}{Indicator variable set to 1 if the firm is listed on the
+#'    New York Stock Exchange (NYSE) or American Stock Exchange (AMEX),
+#'    otherwise 0.}
+#'   \item{h0}{Instrumental variable as specified in equation B-5 of the
+#'    referenced paper.}
+#'   \item{h1}{Another instrumental variable as specified in equation B-5 of the
+#'    referenced paper.}
+#'   \item{vala}{Total market value to assets ratio, often referred to as
+#'    Tobin's Q.}
+#'   \item{oneper}{One-period rate of return, adjusted for non-diversifiable
+#'    discounting.}
+#'   \item{sharef}{Shares of common stock outstanding, represented in
+#'    thousands.}
 #' }
 #'
 #' @details
-#' All values are nominal and in millions of dollars unless stated otherwise. Stock values are end-of-year.
+#' All values are nominal and in millions of dollars unless stated otherwise.
+#' Stock values are end-of-year.
 #'
-#' @source Bronwyn H. Hall and Robert E. Hall, "The Value and Performance of U.S. Corporations," Brookings Papers on Economic Activity, 1993 (1), 1-50. Data sourced from <https://eml.berkeley.edu/~bhhall/bhdata.html>.
+#' @source Bronwyn H. Hall and Robert E. Hall, "The Value and Performance of
+#' U.S. Corporations," Brookings Papers on Economic Activity, 1993 (1), 1-50.
+#' Data sourced from <https://eml.berkeley.edu/~bhhall/bhdata.html>.
 "invest1993"
 
 #' Kilian (2009) Oil Market Dataset
 #'
-#' Monthly observations from February 1973 to December 2007 on global oil production, economic activity, and real crude oil prices.
+#' Monthly observations from February 1973 to December 2007 on global oil
+#' production, economic activity, and real crude oil prices.
 #'
 #' @format A data frame with 3 observations and 4 variables:
 #' \describe{
 #'   \item{time}{Time index in monthly format (e.g., 1973m2 for February 1973)}
-#'   \item{oil}{Percentage change in global oil production. Calculated as the log difference of world crude oil production (in millions of barrels per day, monthly average). Source: U.S. Department of Energy.}
-#'   \item{output}{Global real economic activity index, derived from single-voyage ocean freight rates for dry cargo. Index is in logs and normalized.}
-#'   \item{price}{Real price of crude oil, based on the refiner acquisition cost of imported crude oil, deflated by the U.S. CPI. Data source: U.S. Department of Energy.}
+#'   \item{oil}{Percentage change in global oil production. Calculated as the
+#'    log difference of world crude oil production (in millions of barrels per
+#'    day, monthly average). Source: U.S. Department of Energy.}
+#'   \item{output}{Global real economic activity index, derived from
+#'    single-voyage ocean freight rates for dry cargo. Index is in logs and
+#'    normalized.}
+#'   \item{price}{Real price of crude oil, based on the refiner acquisition cost
+#'    of imported crude oil, deflated by the U.S. CPI. Data source: U.S.
+#'    Department of Energy.}
 #' }
 #'
-#' @details The dataset provides monthly indices to help analyze the effects of various oil price shocks, with specific distinctions between demand and supply drivers in the oil market.
+#' @details The dataset provides monthly indices to help analyze the effects of
+#'  various oil price shocks, with specific distinctions between demand and
+#'  supply drivers in the oil market.
 #'
-#' @source Kilian, Lutz. 2009. "Not All Oil Price Shocks Are Alike: Disentangling Demand and Supply Shocks in the Crude Oil Market." American Economic Review, 1053-1069. Data available from <https://www.openicpsr.org/openicpsr/project/113299/version/V1/view>
+#' @source Kilian, Lutz. 2009. "Not All Oil Price Shocks Are Alike:
+#'  Disentangling Demand and Supply Shocks in the Crude Oil Market." American
+#'  Economic Review, 1053-1069. Data available from
+#'  <https://www.openicpsr.org/openicpsr/project/113299/version/V1/view>
 "kilian2009"
 
 #' Koppelman, Forinash and Wen ModeCanada Data
 #'
-#' A subset of ModeCanada, initially developed by VIA Rail in 1989 to estimate the demand for high-speed rail in the Toronto-Montreal corridor. Collected as part of a Passenger Review for business travelers, the dataset includes information on mode choice and trip characteristics, focusing on choices among train, air, bus, and car options. This dataset has been balanced to only include cases where all four travel modes are recorded.
+#' A subset of ModeCanada, initially developed by VIA Rail in 1989 to estimate
+#' the demand for high-speed rail in the Toronto-Montreal corridor. Collected as
+#' part of a Passenger Review for business travelers, the dataset includes
+#' information on mode choice and trip characteristics, focusing on choices
+#' among train, air, bus, and car options. This dataset has been balanced to
+#' only include cases where all four travel modes are recorded.
 #'
-#' @format A data frame with 11,116 observations on 2,779 individual cases (travelers) and the following variables:
+#' @format A data frame with 11,116 observations on 2,779 individual cases
+#' (travelers) and the following variables:
 #' \describe{
 #'   \item{case}{Unique identifier for each individual traveler.}
-#'   \item{alternative}{Mode of transportation chosen by the traveler: Train, Air, Bus, or Car.}
+#'   \item{alternative}{Mode of transportation chosen by the traveler: Train,
+#'    Air, Bus, or Car.}
 #'   \item{choice}{Selected mode indicator variable.}
-#'   \item{distance}{Total trip distance in kilometers. This variable is case-specific.}
-#'   \item{cost}{Trip cost in Canadian dollars (CAD). This variable varies by case and alternative.}
-#'   \item{intime}{In-vehicle travel time in minutes. This variable varies by case and alternative.}
-#'   \item{outtime}{Out-of-vehicle travel time in minutes. This variable varies by case and alternative.}
-#'   \item{income}{Household income of the traveler, recorded in categories. This variable is case-specific.}
+#'   \item{distance}{Total trip distance in kilometers. This variable is
+#'    case-specific.}
+#'   \item{cost}{Trip cost in Canadian dollars (CAD). This variable varies by
+#'    case and alternative.}
+#'   \item{intime}{In-vehicle travel time in minutes. This variable varies by
+#'    case and alternative.}
+#'   \item{outtime}{Out-of-vehicle travel time in minutes. This variable varies
+#'    by case and alternative.}
+#'   \item{income}{Household income of the traveler, recorded in categories.
+#'    This variable is case-specific.}
 #'   \item{urban}{Large city indicator variable (case-specific).}
 #' }
 #'
-#' @details The dataset allows for analysis of intercity mode choices based on traveler and trip characteristics, enabling insights into factors influencing the selection of train, air, bus, or car travel. This abridged version is included in the `mlogit` R package and has been used in several transportation research papers for modeling and estimation of choice preferences.
+#' @details The dataset allows for analysis of intercity mode choices based on
+#' traveler and trip characteristics, enabling insights into factors influencing
+#' the selection of train, air, bus, or car travel. This abridged version is
+#' included in the `mlogit` R package and has been used in several
+#' transportation research papers for modeling and estimation of choice
+#' preferences.
 #'
 #' @source
-#' - Forinash, C. V., & Koppelman, F. S. (1993). "Application and interpretation of nested logit models of intercity mode choice." *Transportation Research Record*, 1413, 98-106.
-#' - Koppelman, F. S., & Wen, C. H. (2000). "The paired combinatorial logit model: properties, estimation, and application." *Transportation Research Part B*, 34, 75-89.
-#' - Wen, C. H., & Koppelman, F. S. (2001). "The generalized nested logit model." *Transportation Research Part B*, 35, 627-641.
+#' - Forinash, C. V., & Koppelman, F. S. (1993). "Application and interpretation
+#'   of nested logit models of intercity mode choice." *Transportation Research
+#'   Record*, 1413, 98-106.
+#' - Koppelman, F. S., & Wen, C. H. (2000). "The paired combinatorial logit
+#'   model: properties, estimation, and application." *Transportation Research
+#'   Part B*, 34, 75-89.
+#' - Wen, C. H., & Koppelman, F. S. (2001). "The generalized nested logit
+#'   model." *Transportation Research Part B*, 35, 627-641.
 "koppelman"
 
 #' Ludwig and Miller (2007) Impact of Head Start Program on Children's Life Chances
 #'
-#' Examines the effect of the Head Start program on child mortality and other socioeconomic indicators across U.S. counties.
-#' Includes variables on poverty rates, mortality rates by age and cause, and census data from 1960 for 2,783 U.S. counties.
+#' Examines the effect of the Head Start program on child mortality and other
+#' socioeconomic indicators across U.S. counties. Includes variables on poverty
+#' rates, mortality rates by age and cause, and census data from 1960 for 2,783
+#' U.S. counties.
 #'
 #' @format A data frame with 2,783 rows and 17 variables:
 #' \describe{
 #'   \item{state}{State name.}
 #'   \item{povrate60}{County poverty rate in 1960 (percent).}
-#'   \item{mort_age59_related_posths}{Mortality rate for ages 5-9 from Head Start-related causes, 1973-1983.}
-#'   \item{mort_age59_injury_posths}{Mortality rate for ages 5-9 from injuries, 1973-1983.}
-#'   \item{mort_age59_all_posths}{Mortality rate for ages 5-9 from all causes, 1973-1983.}
-#'   \item{mort_age25plus_related_posths}{Mortality rate for ages 25+ from Head Start-related causes, 1973-1983.}
-#'   \item{mort_age25plus_injuries_posths}{Mortality rate for ages 25+ from injuries, 1973-1983.}
-#'   \item{mort_age59_related_prehs}{Mortality rate for ages 5-9 from Head Start-related causes, 1959-1964.}
+#'   \item{mort_age59_related_posths}{Mortality rate for ages 5-9 from Head
+#'    Start-related causes, 1973-1983.}
+#'   \item{mort_age59_injury_posths}{Mortality rate for ages 5-9 from injuries,
+#'    1973-1983.}
+#'   \item{mort_age59_all_posths}{Mortality rate for ages 5-9 from all causes,
+#'    1973-1983.}
+#'   \item{mort_age25plus_related_posths}{Mortality rate for ages 25+ from Head
+#'    Start-related causes, 1973-1983.}
+#'   \item{mort_age25plus_injuries_posths}{Mortality rate for ages 25+ from
+#'    injuries, 1973-1983.}
+#'   \item{mort_age59_related_prehs}{Mortality rate for ages 5-9 from Head
+#'    Start-related causes, 1959-1964.}
 #'   \item{census1960_pop}{County population according to the 1960 Census.}
-#'   \item{census1960_pctsch1417}{Percentage of population aged 14-17 attending school, 1960.}
-#'   \item{census1960_pctsch534}{Percentage of population aged 5-34 attending school, 1960.}
-#'   \item{census1960_pctsch25plus}{Percentage of population aged 25+ with a high school education or more, 1960.}
+#'   \item{census1960_pctsch1417}{Percentage of population aged 14-17 attending
+#'    school, 1960.}
+#'   \item{census1960_pctsch534}{Percentage of population aged 5-34 attending
+#'    school, 1960.}
+#'   \item{census1960_pctsch25plus}{Percentage of population aged 25+ with a
+#'    high school education or more, 1960.}
 #'   \item{census1960_pop1417}{Population aged 14-17, 1960.}
 #'   \item{census1960_pop534}{Population aged 5-34, 1960.}
 #'   \item{census1960_pop25plus}{Population aged 25+, 1960.}
@@ -1121,34 +1389,57 @@
 #'   \item{census1960_pctblack}{Percentage of Black population, 1960.}
 #' }
 #'
-#' @details Abridged version of "headstart.dta" downloaded from \url{https://github.com/rdpackages-replication/CTV_2017_JPAM} which is a subset of that used by Ludwig and Miller and was provided for replication associated with Cattaneo, Titiunik, and Vazquez-Bare. Counties were deleted for which `povrate60` or `mort_age59_related_posths` were missing.
+#' @details Abridged version of "headstart.dta" downloaded from
+#' <https://github.com/rdpackages-replication/CTV_2017_JPAM> which is a subset
+#' of that used by Ludwig and Miller and was provided for replication associated
+#' with Cattaneo, Titiunik, and Vazquez-Bare. Counties were deleted for which
+#' `povrate60` or `mort_age59_related_posths` were missing.
 #'
 #' @source
-#' - Ludwig, J., & Miller, D. L. (2007). "Does Head Start improve children's life chances? Evidence from a regression discontinuity design," \emph{Quarterly Journal of Economics} 122(1), 159-1208.
-#' - Matias D. Cattaneo, Rocio Titiunik, and Gonzalo Vazquez-Bare (2017) "Comparing inference approaches for RD designs: A reexamination of the effect of head start on child mortality," \emph{Journal of Policy Analysis and Management}, 36, 643-681.'
+#' - Ludwig, J., & Miller, D. L. (2007). "Does Head Start improve children's
+#'   life chances? Evidence from a regression discontinuity design,"
+#'   \emph{Quarterly Journal of Economics} 122(1), 159-1208.
+#' - Matias D. Cattaneo, Rocio Titiunik, and Gonzalo Vazquez-Bare (2017)
+#'   "Comparing inference approaches for RD designs: A reexamination of the
+#'   effect of head start on child mortality," \emph{Journal of Policy Analysis
+#'   and Management}, 36, 643-681.'
 "lm2007"
 
 #' Mankiw, Romer and Well (1992) Dataset for Economic Growth Analysis
 #'
-#' Economic indicators relevant to analyzing cross-country economic growth. Covers data from 1960 to 1985 across 121 observations, with variables that encompass GDP, population growth, and investment rates among others.
+#' Economic indicators relevant to analyzing cross-country economic growth.
+#' Covers data from 1960 to 1985 across 121 observations, with variables that
+#' encompass GDP, population growth, and investment rates among others.
 #'
 #' @format A data frame with 121 observations and 10 variables:
 #' \describe{
 #'   \item{country}{Full country name}
-#'   \item{n}{Indicator for all data is available and oil production is not the dominant industry}
-#'   \item{i}{Indicator variable for the population in 1960 was greater than one million}
+#'   \item{n}{Indicator for all data is available and oil production is not the
+#'    dominant industry}
+#'   \item{i}{Indicator variable for the population in 1960 was greater than one
+#'    million}
 #'   \item{o}{Indicator variable for OECD country}
 #'   \item{y60}{Real GDP per working-age person in 1960, in dollars}
 #'   \item{y85}{Real GDP per working-age person in 1985, in dollars}
-#'   \item{y_growth}{Yearly average growth rate (percentage) of real GDP for 1960-1985}
-#'   \item{pop_growth}{Yearly average growth rate (percentage) of the working-age population for 1960-1985}
-#'   \item{invest}{Share (percentage) of real investment (including government investment) in real GDP, averaged for 1960-1985}
-#'   \item{school}{Fraction (percentage) of the eligible population enrolled in secondary school, multiplied by the fraction (percentage) of the working-age population that is school-aged (15 to 64), averaged for 1960-1985}
+#'   \item{y_growth}{Yearly average growth rate (percentage) of real GDP for
+#'    1960-1985}
+#'   \item{pop_growth}{Yearly average growth rate (percentage) of the
+#'    working-age population for 1960-1985}
+#'   \item{invest}{Share (percentage) of real investment (including government
+#'    investment) in real GDP, averaged for 1960-1985}
+#'   \item{school}{Fraction (percentage) of the eligible population enrolled in
+#'    secondary school, multiplied by the fraction (percentage) of the
+#'    working-age population that is school-aged (15 to 64), averaged for
+#'    1960-1985}
 #' }
 #'
-#' @details The data were sourced from the World Bank's World Tables and the UNESCO yearbook, with indicators of working-age population growth, investment share, and school enrollment. It is intended for use in studies of cross-country economic growth patterns.
+#' @details The data were sourced from the World Bank's World Tables and the
+#' UNESCO yearbook, with indicators of working-age population growth, investment
+#' share, and school enrollment. It is intended for use in studies of
+#' cross-country economic growth patterns.
 #'
-#' @source Mankiw, N.G., Romer, D., & Weil, D.N. (1992). "A Contribution to the Empirics of Economic Growth." \emph{The Quarterly Journal of Economics}.
+#' @source Mankiw, N.G., Romer, D., & Weil, D.N. (1992). "A Contribution to the
+#' Empirics of Economic Growth." \emph{The Quarterly Journal of Economics}.
 "mrw1992"
 
 #' Nerlove (1963) Electricity Supply Dataset
@@ -1159,19 +1450,25 @@
 #' \describe{
 #'   \item{cost}{Total Cost in million dollars}
 #'   \item{output}{Electricity output in billion kilowatt-hours (kWh)}
-#'   \item{plabor}{Unit price of labor, represented as wage rate in dollars per hour}
+#'   \item{plabor}{Unit price of labor, represented as wage rate in dollars per
+#'    hour}
 #'   \item{pcapital}{Unit price of capital, given as an index}
-#'   \item{pfuel}{Unit price of fuel in cents per million BTU (British Thermal Units)}
+#'   \item{pfuel}{Unit price of fuel in cents per million BTU (British Thermal
+#'    Units)}
 #' }
 #'
-#' @source Nerlove, Marc. "Returns to Scale in Electricity Supply" (1963), *Measurement in Economics*, C. Christ et al., eds.
+#' @source Nerlove, Marc. "Returns to Scale in Electricity Supply" (1963),
+#' *Measurement in Economics*, C. Christ et al., eds.
 "nerlove1963"
 
-#' Papageorgiou, Saam and Schulte (2017) Substitution between Clean and Dirty Energy Inputs Dataset
+#' Papageorgiou, Saam and Schulte (2017) Substitution between Clean and Dirty
+#' Energy Inputs Dataset
 #'
-#' Electricity production, capacity, and fuel input across clean and dirty energy technologies for 26 countries over the period 1995-2009.
+#' Electricity production, capacity, and fuel input across clean and dirty
+#' energy technologies for 26 countries over the period 1995-2009.
 #'
-#' @format A data frame with observations across multiple countries and years, with the following variables:
+#' @format A data frame with observations across multiple countries and years,
+#' with the following variables:
 #' \describe{
 #'   \item{country}{Country name}
 #'   \item{year}{Year (1995-2009)}
@@ -1181,21 +1478,31 @@
 #'   \item{ec_d}{Net installed dirty generation capacity (MW)}
 #'   \item{fu_c}{Fuel input for clean electricity-generating technologies (TJ)}
 #'   \item{fu_d}{Fuel input for dirty electricity-generating technologies (TJ)}
-#'   \item{fu_total}{Total fuel input for electricity-generating technologies (TJ)}
-#'   \item{ec_c_alt}{Alternative capital proxy: Capital stock associated with clean technologies (EIA-based)}
-#'   \item{ec_d_alt}{Alternative capital proxy: Capital stock associated with dirty technologies (EIA-based)}
+#'   \item{fu_total}{Total fuel input for electricity-generating technologies
+#'    (TJ)}
+#'   \item{ec_c_alt}{Alternative capital proxy: Capital stock associated with
+#'    clean technologies (EIA-based)}
+#'   \item{ec_d_alt}{Alternative capital proxy: Capital stock associated with
+#'    dirty technologies (EIA-based)}
 #' }
 #'
 #' @details
-#' Data extracted from the file "electricity_sector.dta" and sourced from the *REStat* journal website and *Dataverse* repository.
+#' Data extracted from the file "electricity_sector.dta" and sourced from the
+#' *REStat* journal website and *Dataverse* repository.
 #'
 #' @source
-#' Chris Papageorgiou, Marianne Saam, and Patrick Schulte (2017). *Substitution between clean and dirty energy inputs: A macroeconomic perspective*. The Review of Economics and Statistics, 281-290. Available from Harvard Dataverse: \url{https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/67QCH2}
+#' Chris Papageorgiou, Marianne Saam, and Patrick Schulte (2017). *Substitution
+#' between clean and dirty energy inputs: A macroeconomic perspective*. The
+#' Review of Economics and Statistics, 281-290. Available from Harvard
+#' Dataverse:
+#' <https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/67QCH2>
 "pss2017"
 
 #' Reinhart and Rogoff (2010) Growth in a Time of Debt Dataset
 #'
-#' United States' economic indicators, with a focus on the relationship between debt levels and economic growth. The data cover a broad historical period from 1791 to 2009, extracted from the source files on Ken Rogoff's website.
+#' United States' economic indicators, with a focus on the relationship between
+#' debt levels and economic growth. The data cover a broad historical period
+#' from 1791 to 2009, extracted from the source files on Ken Rogoff's website.
 #'
 #' @format A data frame with observations on the following variables:
 #' \describe{
@@ -1205,5 +1512,7 @@
 #'   \item{inflation}{Annual inflation rate, expressed as a percentage}
 #' }
 #'
-#' @source Reinhart, C. M., & Rogoff, K. S. (2010). "Growth in a Time of Debt." *American Economic Review: Papers and Proceedings*, 573-578. Data available at [Ken Rogoff’s website](https://scholar.harvard.edu/files/rogoff/files/41_data.xlsx).
+#' @source Reinhart, C. M., & Rogoff, K. S. (2010). "Growth in a Time of Debt."
+#' *American Economic Review: Papers and Proceedings*, 573-578. Data available
+#' at [Ken Rogoff’s website](https://scholar.harvard.edu/files/rogoff/files/41_data.xlsx).
 "rr2010"

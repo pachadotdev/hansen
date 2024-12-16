@@ -8,28 +8,46 @@
 A data frame with 1,031 rows and 10 variables:
 \describe{
 \item{year}{Year of observation}
-\item{emp}{Employment (number of employees). Number of U.K. employees (Datastream variable 216)}
-\item{wage}{Real wage per employee. A measure of average annual remuneration per employee was constructed by dividing U.K.
-remuneration (Datastream variable 214) by the number of U.K. employees. This was adjusted to
-take into account changes in average weekly hours worked in manufacturing industries (manual
-and non-manual employees, 18 years and over, male and female, all occupations-source:
-Department of Employment Gazette, various issues). A measure of real average hourly
-remuneration was then obtained by deflating using an implicit value-added price deflator. These
-implicit price deflators were calculated for each of our sub-sectors of manufacturing industry,
-using the current price and constant price GDP data published in various Blue Books.}
-\item{cap}{Gross capital stock. Denoting the historic cost book value of gross fixed assets (Datastream variable 330) by HCKt, we
-obtain an estimate of the inflation-adjusted (or replacement cost) value of gross fixed assets
-$RCK_t$ using the formula $RCK_t = HCK_t \\times P_t / P_\{t-A\}$ where $P$ is a price index for investment goods and
-$A$ is an estimate of the average age of gross fixed assets. An implicit price deflator for gross fixed
-investment by manufacturing industry was calculated using the current price and constant price
-gross fixed investment data published in Economic Trends Annual Supplement (1986, p. 56). For
-the purpose of this exercise a value of $A$ of 6 years was assumed. Our estimates of the gross
-capital stock at replacement cost are then expressed in constant prices using our investment
+\item{emp}{Employment (number of employees). Number of U.K. employees
+(Datastream variable 216)}
+\item{wage}{Real wage per employee. A measure of average annual
+remuneration per employee was constructed by dividing U.K.
+remuneration (Datastream variable 214) by the number of U.K. employees.
+This was adjusted to
+take into account changes in average weekly hours worked in manufacturing
+industries (manual and non-manual employees, 18 years and over, male and
+female, all occupations-source:
+Department of Employment Gazette, various issues). A measure of real
+average hourly
+remuneration was then obtained by deflating using an implicit value-added
+price deflator. These
+implicit price deflators were calculated for each of our sub-sectors of
+manufacturing industry,
+using the current price and constant price GDP data published in various
+Blue Books.}
+\item{cap}{Gross capital stock. Denoting the historic cost book value of
+gross fixed assets (Datastream variable 330) by HCKt, we
+obtain an estimate of the inflation-adjusted (or replacement cost) value of
+gross fixed assets
+$RCK_t$ using the formula $RCK_t = HCK_t \\times P_t / P_\{t-A\}$ where $P$
+is a price index for investment goods and
+$A$ is an estimate of the average age of gross fixed assets. An implicit
+price deflator for gross fixed
+investment by manufacturing industry was calculated using the current price
+and constant price
+gross fixed investment data published in Economic Trends Annual Supplement
+(1986, p. 56). For
+the purpose of this exercise a value of $A$ of 6 years was assumed. Our
+estimates of the gross
+capital stock at replacement cost are then expressed in constant prices
+using our investment
 goods deflator.}
-\item{indoutpt}{Industry output. An index of value-added output at constant factor cost was constructed for each of our 9 sub-
-sectors of manufacturing industry, using data published in the Blue Book (1986, Table 2.4). The
-15 sub-sectors of manufacturing for which this data is reported were combined into 9 using the
-weights given in the Blue Book.}
+\item{indoutpt}{Industry output. An index of value-added output at constant
+factor cost was constructed for each of our 9 sub-
+sectors of manufacturing industry, using data published in the Blue Book
+(1986, Table 2.4). The
+15 sub-sectors of manufacturing for which this data is reported were
+combined into 9 using the weights given in the Blue Book.}
 \item{n}{Log of employment}
 \item{w}{Log of real wage}
 \item{k}{Log of gross capital stock}

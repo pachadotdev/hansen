@@ -19,8 +19,8 @@ Authors@R: c(
     )
 Description: This package provides datasets from the book 'Econometrics' by
     Bruce E. Hansen <isbn:9780691235899> along with unofficial refactored code
-    using 'cpp11armadillo' to show C++ usage. The original datasets were
-    adapted from multiple sources, including:
+    using 'cpp11armadillo' to show 'cpp11armadillo' usage. The original datasets
+    were adapted from multiple sources, including:
     Arellano and Bond (1991) <doi:10.2307/2297968>;
     Acemoglu, Johnson, and Robinson (2001) <doi:10.1257/aer.91.5.1369>;
     Angrist and Krueger (1991) <doi:10.2307/2937954>;
@@ -45,7 +45,10 @@ Description: This package provides datasets from the book 'Econometrics' by
 License: Apache License (>= 2)
 Encoding: UTF-8
 Depends: R (>= 2.10)
-Suggests: spelling
+Suggests: 
+    knitr,
+    rmarkdown,
+    spelling
 LazyData: true
 LazyDataCompression: xz
 Language: en-US

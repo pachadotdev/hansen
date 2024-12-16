@@ -9,3 +9,4 @@ README.html
 /.quarto/
 dev/hansen-codes/
 .vscode
+inst/doc

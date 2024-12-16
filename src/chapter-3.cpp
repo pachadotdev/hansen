@@ -8,8 +8,8 @@ Mat<double> ols_(const Mat<double>& Y, const Mat<double>& X) {
   return beta;
 }
 
-[[cpp11::register]] doubles_matrix<> ols_mat(const doubles_matrix<>& y,
-                                             const doubles_matrix<>& x) {
+[[cpp11::register]] doubles_matrix<> ols_r_(const doubles_matrix<>& y,
+                                            const doubles_matrix<>& x) {
   Mat<double> Y = as_Mat(y);  // Col<double> Y = as_Col(y); also works
   Mat<double> X = as_Mat(x);
   Mat<double> beta = ols_(Y, X);
@@ -29,7 +29,7 @@ double influence_(const doubles_matrix<>& y, const doubles_matrix<>& x) {
   return as_scalar(max(abs(d)));
 }
 
-[[cpp11::register]] double influence_dbl(const doubles_matrix<>& y,
-                                          const doubles_matrix<>& x) {
+[[cpp11::register]] double influence_r_(const doubles_matrix<>& y,
+                                        const doubles_matrix<>& x) {
   return influence_(y, x);
 }
