@@ -14,12 +14,6 @@ knitr::opts_chunk$set(
 )
 ```
 
-# Datasets
-
-The datasets were already processed and tidied following the steps in the
-original code by Professor Hansen. The goal is to go directly to writing
-functions in C++.
-
 # Notation
 
 In the textbook, the notation is of the form:
@@ -66,13 +60,26 @@ R to C++ data types and vice versa.
 This allows to reuse functions in the C++ code more easily and also avoids
 overhead coping data between R and C++ multiple times.
 
-Please look at the code in the 'src' folder.
+The functions must be exposed and documented so that these can be used by the
+end-user:
 
-The actual code uses a header used across all the scripts in order to avoid
+```r
+#' Add Title
+#' @param a Description
+#' @param b Description
+#' @return matrix, vector, etc containing the result
+#' @export
+my_function <- function(a, b) {
+  my_function_r_(a, b)
+}
+```
+
+Please look at the code in the 'R' and 'src' folders in the package
+[repository](https://github.com/pachadotdev/hansen).
+
+The code uses a header used across all the scripts in order to avoid
 importing the libraries multiple times and it allows us to use the `ols_`
-function across all the scripts.
-
-The header is:
+function across all the scripts. The header is:
 
 ```cpp
 #include <cpp11.hpp>

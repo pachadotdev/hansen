@@ -20,12 +20,16 @@ A data frame with 329,509 observations across 10 columns.
 }
 }
 \source{
-Angrist, J., & Krueger, A. (1991). "Does Compulsory School Attendance Affect Schooling and Earnings?" \emph{The Quarterly Journal of Economics}. Data available at \url{http://economics.mit.edu/faculty/angrist/data1/data/angkru1991}
+Angrist, J., & Krueger, A. (1991). "Does Compulsory School Attendance
+Affect Schooling and Earnings?" \emph{The Quarterly Journal of Economics}. Data
+available at \url{http://economics.mit.edu/faculty/angrist/data1/data/angkru1991}
 }
 \usage{
 ak1991
 }
 \description{
-Schooling and earnings based on a subsample of men born 1930-1939 from the 1980 census extract. The dataset contains variables related to age, education, earnings, marital status, and geographic information.
+Schooling and earnings based on a subsample of men born 1930-1939 from the
+1980 census extract. The dataset contains variables related to age,
+education, earnings, marital status, and geographic information.
 }
 \keyword{datasets}

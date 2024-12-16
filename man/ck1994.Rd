@@ -36,12 +36,18 @@ A data frame with 820 observations and 26 variables, representing 410 stores sur
 }
 }
 \source{
-Card, D., & Krueger, A. B. (1994). "Minimum Wages and Employment: A Case Study of the Fast-Food Industry in New Jersey and Pennsylvania." \emph{American Economic Review}. Data available at \url{http://davidcard.berkeley.edu/data_sets.html}
+Card, D., & Krueger, A. B. (1994). "Minimum Wages and Employment: A
+Case Study of the Fast-Food Industry in New Jersey and Pennsylvania."
+\emph{American Economic Review}. Data available at
+\url{http://davidcard.berkeley.edu/data_sets.html}
 }
 \usage{
 ck1994
 }
 \description{
-Employment and wage characteristics in fast-food restaurants across New Jersey and Pennsylvania. The dataset includes information on store characteristics, wages, and employee counts, reorganized so that each row represents one observation per store across two survey waves.
+Employment and wage characteristics in fast-food restaurants across New
+Jersey and Pennsylvania. The dataset includes information on store
+characteristics, wages, and employee counts, reorganized so that each row
+represents one observation per store across two survey waves.
 }
 \keyword{datasets}

@@ -3,9 +3,11 @@
 \docType{data}
 \name{ajr2001}
 \alias{ajr2001}
-\title{Acemoglou, Johnson, and Robinson (2001) Dataset on Colonial Origins of Comparative Development}
+\title{Acemoglou, Johnson, and Robinson (2001) Dataset on Colonial Origins of
+Comparative Development}
 \format{
-A data frame with 64 observations across 31 columns. Missing values are coded as NA.
+A data frame with 64 observations across 31 columns. Missing values
+are coded as NA.
 \describe{
 \item{longname}{Full country name}
 \item{shortnam}{3-letter country name}
@@ -30,10 +32,12 @@ A data frame with 64 observations across 31 columns. Missing values are coded as
 \item{mortjam}{Mortality benchmarked to the Caribbean}
 \item{logmortjam}{Log mortality benchmarked to the Caribbean}
 \item{logmortcap250}{Log mortality capped at 250}
-\item{logmortjam250}{Log mortality benchmarked to the Caribbean, capped at 250}
+\item{logmortjam250}{Log mortality benchmarked to the Caribbean, capped at
+250}
 \item{wandcafrica}{Indicator for West and Central Africa}
 \item{malfal94}{Falciparum malaria index, 1994}
-\item{wacacontested}{Indicator for contested observations in West and Central Africa}
+\item{wacacontested}{Indicator for contested observations in West and
+Central Africa}
 \item{mortnaval2250}{Mortality using naval stations, capped at 250}
 \item{logmortnaval2250}{Log mortality using naval stations, capped at 250}
 \item{mortnaval1250}{Mortality using naval stations, capped at 250}
@@ -41,12 +45,18 @@ A data frame with 64 observations across 31 columns. Missing values are coded as
 }
 }
 \source{
-Acemoglou, D., Johnson, S., & Robinson, J. A. (2001). "The Colonial Origins of Comparative Development: An Empirical Investigation." American Economic Review. Updated version (2012): "The Colonial Origins of Comparative Development: An Empirical Investigation: Reply." Data available at \url{https://www.aeaweb.org/aer/data/oct2012/20110390_data.zip}
+Acemoglou, D., Johnson, S., & Robinson, J. A. (2001). "The Colonial
+Origins of Comparative Development: An Empirical Investigation." American
+Economic Review. Updated version (2012): "The Colonial Origins of Comparative
+Development: An Empirical Investigation: Reply." Data available at
+\url{https://www.aeaweb.org/aer/data/oct2012/20110390_data.zip}
 }
 \usage{
 ajr2001
 }
 \description{
-Colonial factors influencing economic development. Updated in 2012, it includes variables related to settler mortality, economic indicators, geographic data, and other socio-political metrics.
+Colonial factors influencing economic development. Updated in 2012, it
+includes variables related to settler mortality, economic indicators,
+geographic data, and other socio-political metrics.
 }
 \keyword{datasets}

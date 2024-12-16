@@ -3,9 +3,11 @@
 \docType{data}
 \name{pss2017}
 \alias{pss2017}
-\title{Papageorgiou, Saam and Schulte (2017) Substitution between Clean and Dirty Energy Inputs Dataset}
+\title{Papageorgiou, Saam and Schulte (2017) Substitution between Clean and Dirty
+Energy Inputs Dataset}
 \format{
-A data frame with observations across multiple countries and years, with the following variables:
+A data frame with observations across multiple countries and years,
+with the following variables:
 \describe{
 \item{country}{Country name}
 \item{year}{Year (1995-2009)}
@@ -15,21 +17,30 @@ A data frame with observations across multiple countries and years, with the fol
 \item{ec_d}{Net installed dirty generation capacity (MW)}
 \item{fu_c}{Fuel input for clean electricity-generating technologies (TJ)}
 \item{fu_d}{Fuel input for dirty electricity-generating technologies (TJ)}
-\item{fu_total}{Total fuel input for electricity-generating technologies (TJ)}
-\item{ec_c_alt}{Alternative capital proxy: Capital stock associated with clean technologies (EIA-based)}
-\item{ec_d_alt}{Alternative capital proxy: Capital stock associated with dirty technologies (EIA-based)}
+\item{fu_total}{Total fuel input for electricity-generating technologies
+(TJ)}
+\item{ec_c_alt}{Alternative capital proxy: Capital stock associated with
+clean technologies (EIA-based)}
+\item{ec_d_alt}{Alternative capital proxy: Capital stock associated with
+dirty technologies (EIA-based)}
 }
 }
 \source{
-Chris Papageorgiou, Marianne Saam, and Patrick Schulte (2017). \emph{Substitution between clean and dirty energy inputs: A macroeconomic perspective}. The Review of Economics and Statistics, 281-290. Available from Harvard Dataverse: \url{https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/67QCH2}
+Chris Papageorgiou, Marianne Saam, and Patrick Schulte (2017). \emph{Substitution
+between clean and dirty energy inputs: A macroeconomic perspective}. The
+Review of Economics and Statistics, 281-290. Available from Harvard
+Dataverse:
+\url{https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/67QCH2}
 }
 \usage{
 pss2017
 }
 \description{
-Electricity production, capacity, and fuel input across clean and dirty energy technologies for 26 countries over the period 1995-2009.
+Electricity production, capacity, and fuel input across clean and dirty
+energy technologies for 26 countries over the period 1995-2009.
 }
 \details{
-Data extracted from the file "electricity_sector.dta" and sourced from the \emph{REStat} journal website and \emph{Dataverse} repository.
+Data extracted from the file "electricity_sector.dta" and sourced from the
+\emph{REStat} journal website and \emph{Dataverse} repository.
 }
 \keyword{datasets}

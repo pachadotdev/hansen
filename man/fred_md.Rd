@@ -5,7 +5,8 @@
 \alias{fred_md}
 \title{McCracken and Ng (2015) FRED-MD Monthly Database for Macroeconomic Research}
 \format{
-A data frame with 708 observations and 129 variables across various economic indicators.
+A data frame with 708 observations and 129 variables across various
+economic indicators.
 \describe{
 \item{rpi}{Real personal income}
 \item{w875rx1}{Real personal income excluding transfer receipts}
@@ -13,7 +14,8 @@ A data frame with 708 observations and 129 variables across various economic ind
 \item{cmrmtsplx}{Real manufacturing and trade industries sales}
 \item{retailx}{Retail and food services sales}
 \item{indpro}{Industrial Production Index}
-\item{ipfpnss}{Industrial production: Final products and nonindustrial supplies}
+\item{ipfpnss}{Industrial production: Final products and nonindustrial
+supplies}
 \item{ipfinal}{Industrial Production - Final Products (Market Group)}
 \item{ipcongd}{Industrial production: Consumer goods}
 \item{ipdcongd}{Industrial production: Durable consumer goods}
@@ -139,15 +141,21 @@ A data frame with 708 observations and 129 variables across various economic ind
 }
 }
 \source{
-McCracken, M. W., & Ng, S. (2015). "FRED-MD: A Monthly Database for Macroeconomic Research." Data available at \url{https://research.stlouisfed.org/econ/mccracken/fred-databases/}
+McCracken, M. W., & Ng, S. (2015). "FRED-MD: A Monthly Database for
+Macroeconomic Research." Data available at
+\url{https://research.stlouisfed.org/econ/mccracken/fred-databases/}
 }
 \usage{
 fred_md
 }
 \description{
-Monthly collection of major U.S. macroeconomic variables maintained by the St. Louis Federal Reserve Bank. This dataset provides key economic indicators for various sectors, including output, labor, housing, consumption, interest rates, and stock markets. Includes data from 1959 to 2017.
+Monthly collection of major U.S. macroeconomic variables maintained by the
+St. Louis Federal Reserve Bank. This dataset provides key economic indicators
+for various sectors, including output, labor, housing, consumption, interest
+rates, and stock markets. Includes data from 1959 to 2017.
 }
 \details{
-Most of the variables are provided in the most basic format, so transformations are required for typical uses (e.g., for growth rates).
+Most of the variables are provided in the most basic format, so
+transformations are required for typical uses (e.g., for growth rates).
 }
 \keyword{datasets}

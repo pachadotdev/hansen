@@ -9,13 +9,16 @@ A data frame with 145 observations on the following variables:
 \describe{
 \item{cost}{Total Cost in million dollars}
 \item{output}{Electricity output in billion kilowatt-hours (kWh)}
-\item{plabor}{Unit price of labor, represented as wage rate in dollars per hour}
+\item{plabor}{Unit price of labor, represented as wage rate in dollars per
+hour}
 \item{pcapital}{Unit price of capital, given as an index}
-\item{pfuel}{Unit price of fuel in cents per million BTU (British Thermal Units)}
+\item{pfuel}{Unit price of fuel in cents per million BTU (British Thermal
+Units)}
 }
 }
 \source{
-Nerlove, Marc. "Returns to Scale in Electricity Supply" (1963), \emph{Measurement in Economics}, C. Christ et al., eds.
+Nerlove, Marc. "Returns to Scale in Electricity Supply" (1963),
+\emph{Measurement in Economics}, C. Christ et al., eds.
 }
 \usage{
 nerlove1963

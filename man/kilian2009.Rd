@@ -8,21 +8,33 @@
 A data frame with 3 observations and 4 variables:
 \describe{
 \item{time}{Time index in monthly format (e.g., 1973m2 for February 1973)}
-\item{oil}{Percentage change in global oil production. Calculated as the log difference of world crude oil production (in millions of barrels per day, monthly average). Source: U.S. Department of Energy.}
-\item{output}{Global real economic activity index, derived from single-voyage ocean freight rates for dry cargo. Index is in logs and normalized.}
-\item{price}{Real price of crude oil, based on the refiner acquisition cost of imported crude oil, deflated by the U.S. CPI. Data source: U.S. Department of Energy.}
+\item{oil}{Percentage change in global oil production. Calculated as the
+log difference of world crude oil production (in millions of barrels per
+day, monthly average). Source: U.S. Department of Energy.}
+\item{output}{Global real economic activity index, derived from
+single-voyage ocean freight rates for dry cargo. Index is in logs and
+normalized.}
+\item{price}{Real price of crude oil, based on the refiner acquisition cost
+of imported crude oil, deflated by the U.S. CPI. Data source: U.S.
+Department of Energy.}
 }
 }
 \source{
-Kilian, Lutz. 2009. "Not All Oil Price Shocks Are Alike: Disentangling Demand and Supply Shocks in the Crude Oil Market." American Economic Review, 1053-1069. Data available from \url{https://www.openicpsr.org/openicpsr/project/113299/version/V1/view}
+Kilian, Lutz. 2009. "Not All Oil Price Shocks Are Alike:
+Disentangling Demand and Supply Shocks in the Crude Oil Market." American
+Economic Review, 1053-1069. Data available from
+\url{https://www.openicpsr.org/openicpsr/project/113299/version/V1/view}
 }
 \usage{
 kilian2009
 }
 \description{
-Monthly observations from February 1973 to December 2007 on global oil production, economic activity, and real crude oil prices.
+Monthly observations from February 1973 to December 2007 on global oil
+production, economic activity, and real crude oil prices.
 }
 \details{
-The dataset provides monthly indices to help analyze the effects of various oil price shocks, with specific distinctions between demand and supply drivers in the oil market.
+The dataset provides monthly indices to help analyze the effects of
+various oil price shocks, with specific distinctions between demand and
+supply drivers in the oil market.
 }
 \keyword{datasets}

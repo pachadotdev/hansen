@@ -41,12 +41,19 @@ A data frame with 4,067 classrooms and 31 variables.
 }
 }
 \source{
-Angrist, J., & Lavy, V. (1999). "Using Maimonides’ Rule to Estimate the Effect of Class Size on Scholastic Achievement." \emph{The Quarterly Journal of Economics}. Data available at \url{https://economics.mit.edu/faculty/angrist/data1/data/anglavy99}
+Angrist, J., & Lavy, V. (1999). "Using Maimonides’ Rule to Estimate
+the Effect of Class Size on Scholastic Achievement." \emph{The Quarterly Journal
+of Economics}. Data available at
+\url{https://economics.mit.edu/faculty/angrist/data1/data/anglavy99}
 }
 \usage{
 al1999
 }
 \description{
-Class sizes, scholastic achievement scores, and various classroom demographics for 4th and 5th grades. The dataset is derived from the merged files \code{final4.dta} and \code{final5.dta} with data cleaning adjustments to remove recording errors, missing observations, class sizes above 44, and enrollments below 6.
+Class sizes, scholastic achievement scores, and various classroom
+demographics for 4th and 5th grades. The dataset is derived from the merged
+files \code{final4.dta} and \code{final5.dta} with data cleaning adjustments to remove
+recording errors, missing observations, class sizes above 44, and enrollments
+below 6.
 }
 \keyword{datasets}

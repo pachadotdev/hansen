@@ -8,27 +8,41 @@
 A data frame with 121 observations and 10 variables:
 \describe{
 \item{country}{Full country name}
-\item{n}{Indicator for all data is available and oil production is not the dominant industry}
-\item{i}{Indicator variable for the population in 1960 was greater than one million}
+\item{n}{Indicator for all data is available and oil production is not the
+dominant industry}
+\item{i}{Indicator variable for the population in 1960 was greater than one
+million}
 \item{o}{Indicator variable for OECD country}
 \item{y60}{Real GDP per working-age person in 1960, in dollars}
 \item{y85}{Real GDP per working-age person in 1985, in dollars}
-\item{y_growth}{Yearly average growth rate (percentage) of real GDP for 1960-1985}
-\item{pop_growth}{Yearly average growth rate (percentage) of the working-age population for 1960-1985}
-\item{invest}{Share (percentage) of real investment (including government investment) in real GDP, averaged for 1960-1985}
-\item{school}{Fraction (percentage) of the eligible population enrolled in secondary school, multiplied by the fraction (percentage) of the working-age population that is school-aged (15 to 64), averaged for 1960-1985}
+\item{y_growth}{Yearly average growth rate (percentage) of real GDP for
+1960-1985}
+\item{pop_growth}{Yearly average growth rate (percentage) of the
+working-age population for 1960-1985}
+\item{invest}{Share (percentage) of real investment (including government
+investment) in real GDP, averaged for 1960-1985}
+\item{school}{Fraction (percentage) of the eligible population enrolled in
+secondary school, multiplied by the fraction (percentage) of the
+working-age population that is school-aged (15 to 64), averaged for
+1960-1985}
 }
 }
 \source{
-Mankiw, N.G., Romer, D., & Weil, D.N. (1992). "A Contribution to the Empirics of Economic Growth." \emph{The Quarterly Journal of Economics}.
+Mankiw, N.G., Romer, D., & Weil, D.N. (1992). "A Contribution to the
+Empirics of Economic Growth." \emph{The Quarterly Journal of Economics}.
 }
 \usage{
 mrw1992
 }
 \description{
-Economic indicators relevant to analyzing cross-country economic growth. Covers data from 1960 to 1985 across 121 observations, with variables that encompass GDP, population growth, and investment rates among others.
+Economic indicators relevant to analyzing cross-country economic growth.
+Covers data from 1960 to 1985 across 121 observations, with variables that
+encompass GDP, population growth, and investment rates among others.
 }
 \details{
-The data were sourced from the World Bank's World Tables and the UNESCO yearbook, with indicators of working-age population growth, investment share, and school enrollment. It is intended for use in studies of cross-country economic growth patterns.
+The data were sourced from the World Bank's World Tables and the
+UNESCO yearbook, with indicators of working-age population growth, investment
+share, and school enrollment. It is intended for use in studies of
+cross-country economic growth patterns.
 }
 \keyword{datasets}

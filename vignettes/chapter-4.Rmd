@@ -39,6 +39,8 @@ Using the OLS functions from Chapter 3, we can compute the standard errors with
 the following C++ code:
 
 ```cpp
+#include "00_main.h"
+
 Mat<double> ols2_(const doubles_matrix<>& y, const doubles_matrix<>& x) {
   Mat<double> Y = as_Mat(y);
   Mat<double> X = as_Mat(x);
@@ -99,10 +101,8 @@ x <- cbind(1, dat1$education_num)
 
 table41 <- ols2(y, x)
 
-rownames(table41) <- c(
-  "Homoskedastic (4.32)", "HC0 (4.33)", "HC1 (4.34)",
-  "HC2 (4.35)", "HC3 (4.36)"
-)
+rownames(table41) <- c("Homoskedastic (4.32)", "HC0 (4.33)", "HC1 (4.34)",
+  "HC2 (4.35)", "HC3 (4.36)")
 colnames(table41) <- c("Intercept", "Education")
 
 round(table41, 3)

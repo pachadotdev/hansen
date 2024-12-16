@@ -14,12 +14,16 @@ A data frame with observations on the following variables:
 }
 }
 \source{
-Reinhart, C. M., & Rogoff, K. S. (2010). "Growth in a Time of Debt." \emph{American Economic Review: Papers and Proceedings}, 573-578. Data available at \href{https://scholar.harvard.edu/files/rogoff/files/41_data.xlsx}{Ken Rogoff’s website}.
+Reinhart, C. M., & Rogoff, K. S. (2010). "Growth in a Time of Debt."
+\emph{American Economic Review: Papers and Proceedings}, 573-578. Data available
+at \href{https://scholar.harvard.edu/files/rogoff/files/41_data.xlsx}{Ken Rogoff’s website}.
 }
 \usage{
 rr2010
 }
 \description{
-United States' economic indicators, with a focus on the relationship between debt levels and economic growth. The data cover a broad historical period from 1791 to 2009, extracted from the source files on Ken Rogoff's website.
+United States' economic indicators, with a focus on the relationship between
+debt levels and economic growth. The data cover a broad historical period
+from 1791 to 2009, extracted from the source files on Ken Rogoff's website.
 }
 \keyword{datasets}

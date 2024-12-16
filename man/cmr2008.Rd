@@ -56,12 +56,17 @@ A data frame with 48,643 observations (census tracts) and 46 variables.
 }
 }
 \source{
-Card, D., Mas, A., & Rothstein, J. (2008). "Tipping and the Dynamics of Segregation." \emph{Quarterly Journal of Economics}. Data available at \url{https://berkeley.app.box.com/v/tippingreplication}
+Card, D., Mas, A., & Rothstein, J. (2008). "Tipping and the Dynamics
+of Segregation." \emph{Quarterly Journal of Economics}. Data available at
+\url{https://berkeley.app.box.com/v/tippingreplication}
 }
 \usage{
 cmr2008
 }
 \description{
-Demographic, economic, and housing characteristics across U.S. census tracts from 1970 to 2000. The dataset includes variables related to population composition, income, housing, and transportation, reorganized from the original replication files.
+Demographic, economic, and housing characteristics across U.S. census tracts
+from 1970 to 2000. The dataset includes variables related to population
+composition, income, housing, and transportation, reorganized from the
+original replication files.
 }
 \keyword{datasets}

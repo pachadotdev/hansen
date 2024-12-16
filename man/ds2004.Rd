@@ -22,12 +22,17 @@ A data frame with 7,884 observations and 10 variables.
 }
 }
 \source{
-Di Tella, R., & Schargrodsky, E. (2004). "Do Police Reduce Crime? Estimates Using the Allocation of Police Forces After a Terrorist Attack." \emph{American Economic Review}. Data available at \url{https://www.aeaweb.org/aer/data/march2004_ditella_data.zip}
+Di Tella, R., & Schargrodsky, E. (2004). "Do Police Reduce Crime?
+Estimates Using the Allocation of Police Forces After a Terrorist Attack."
+\emph{American Economic Review}. Data available at
+\url{https://www.aeaweb.org/aer/data/march2004_ditella_data.zip}
 }
 \usage{
 ds2004
 }
 \description{
-Police presence, neighborhood characteristics, and crime levels across city blocks in Buenos Aires. The data spans from April 1994 through December 1994, with monthly observations on 7,884 city blocks.
+Police presence, neighborhood characteristics, and crime levels across city
+blocks in Buenos Aires. The data spans from April 1994 through December 1994,
+with monthly observations on 7,884 city blocks.
 }
 \keyword{datasets}

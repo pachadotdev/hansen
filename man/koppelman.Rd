@@ -5,33 +5,55 @@
 \alias{koppelman}
 \title{Koppelman, Forinash and Wen ModeCanada Data}
 \format{
-A data frame with 11,116 observations on 2,779 individual cases (travelers) and the following variables:
+A data frame with 11,116 observations on 2,779 individual cases
+(travelers) and the following variables:
 \describe{
 \item{case}{Unique identifier for each individual traveler.}
-\item{alternative}{Mode of transportation chosen by the traveler: Train, Air, Bus, or Car.}
+\item{alternative}{Mode of transportation chosen by the traveler: Train,
+Air, Bus, or Car.}
 \item{choice}{Selected mode indicator variable.}
-\item{distance}{Total trip distance in kilometers. This variable is case-specific.}
-\item{cost}{Trip cost in Canadian dollars (CAD). This variable varies by case and alternative.}
-\item{intime}{In-vehicle travel time in minutes. This variable varies by case and alternative.}
-\item{outtime}{Out-of-vehicle travel time in minutes. This variable varies by case and alternative.}
-\item{income}{Household income of the traveler, recorded in categories. This variable is case-specific.}
+\item{distance}{Total trip distance in kilometers. This variable is
+case-specific.}
+\item{cost}{Trip cost in Canadian dollars (CAD). This variable varies by
+case and alternative.}
+\item{intime}{In-vehicle travel time in minutes. This variable varies by
+case and alternative.}
+\item{outtime}{Out-of-vehicle travel time in minutes. This variable varies
+by case and alternative.}
+\item{income}{Household income of the traveler, recorded in categories.
+This variable is case-specific.}
 \item{urban}{Large city indicator variable (case-specific).}
 }
 }
 \source{
 \itemize{
-\item Forinash, C. V., & Koppelman, F. S. (1993). "Application and interpretation of nested logit models of intercity mode choice." \emph{Transportation Research Record}, 1413, 98-106.
-\item Koppelman, F. S., & Wen, C. H. (2000). "The paired combinatorial logit model: properties, estimation, and application." \emph{Transportation Research Part B}, 34, 75-89.
-\item Wen, C. H., & Koppelman, F. S. (2001). "The generalized nested logit model." \emph{Transportation Research Part B}, 35, 627-641.
+\item Forinash, C. V., & Koppelman, F. S. (1993). "Application and interpretation
+of nested logit models of intercity mode choice." \emph{Transportation Research
+Record}, 1413, 98-106.
+\item Koppelman, F. S., & Wen, C. H. (2000). "The paired combinatorial logit
+model: properties, estimation, and application." \emph{Transportation Research
+Part B}, 34, 75-89.
+\item Wen, C. H., & Koppelman, F. S. (2001). "The generalized nested logit
+model." \emph{Transportation Research Part B}, 35, 627-641.
 }
 }
 \usage{
 koppelman
 }
 \description{
-A subset of ModeCanada, initially developed by VIA Rail in 1989 to estimate the demand for high-speed rail in the Toronto-Montreal corridor. Collected as part of a Passenger Review for business travelers, the dataset includes information on mode choice and trip characteristics, focusing on choices among train, air, bus, and car options. This dataset has been balanced to only include cases where all four travel modes are recorded.
+A subset of ModeCanada, initially developed by VIA Rail in 1989 to estimate
+the demand for high-speed rail in the Toronto-Montreal corridor. Collected as
+part of a Passenger Review for business travelers, the dataset includes
+information on mode choice and trip characteristics, focusing on choices
+among train, air, bus, and car options. This dataset has been balanced to
+only include cases where all four travel modes are recorded.
 }
 \details{
-The dataset allows for analysis of intercity mode choices based on traveler and trip characteristics, enabling insights into factors influencing the selection of train, air, bus, or car travel. This abridged version is included in the \code{mlogit} R package and has been used in several transportation research papers for modeling and estimation of choice preferences.
+The dataset allows for analysis of intercity mode choices based on
+traveler and trip characteristics, enabling insights into factors influencing
+the selection of train, air, bus, or car travel. This abridged version is
+included in the \code{mlogit} R package and has been used in several
+transportation research papers for modeling and estimation of choice
+preferences.
 }
 \keyword{datasets}

@@ -10,11 +10,13 @@ A data frame with 236 observations and 249 variables:
 \item{gdpc1}{Real Gross Domestic Product}
 \item{pcecc96}{Real Personal Consumption Expenditures}
 \item{pcdgx}{Real Personal Consumption Expenditures: Durable Goods}
-\item{pcesvx}{Real Personal Consumption Expenditures: Services excluding food and energy}
+\item{pcesvx}{Real Personal Consumption Expenditures: Services excluding
+food and energy}
 \item{pcndx}{Real Personal Consumption Expenditures: Nondurable Goods}
 \item{gpdic1}{Gross Private Domestic Investment}
 \item{fpix}{Fixed Private Investment}
-\item{y033rc1q027sbeax}{Real Gross Private Domestic Investment: Residential}
+\item{y033rc1q027sbeax}{Real Gross Private Domestic Investment:
+Residential}
 \item{pnfix}{Private Nonresidential Fixed Investment}
 \item{prfix}{Private Residential Fixed Investment}
 \item{a014re1q156nbea}{Government Consumption Expenditures}
@@ -127,10 +129,12 @@ A data frame with 236 observations and 249 variables:
 \item{difsrg3q086sbea}{Insurance Services Expenditures}
 \item{dotsrg3q086sbea}{Other Services Expenditures}
 \item{cpiaucsl}{Consumer Price Index for All Urban Consumers: All Items}
-\item{cpilfesl}{Consumer Price Index for All Urban Consumers: All Items Less Food and Energy}
+\item{cpilfesl}{Consumer Price Index for All Urban Consumers: All Items
+Less Food and Energy}
 \item{wpsfd49207}{Producer Price Index by Commodity for Crude Materials}
 \item{ppiaco}{Producer Price Index by Commodity}
-\item{wpsfd49502}{Producer Price Index by Commodity for Intermediate Materials}
+\item{wpsfd49502}{Producer Price Index by Commodity for Intermediate
+Materials}
 \item{wpsfd4111}{Producer Price Index by Commodity for Finished Goods}
 \item{ppiidc}{Producer Price Index: Industrial Commodities}
 \item{wpsid61}{Producer Price Index for Finished Goods}
@@ -211,7 +215,8 @@ A data frame with 236 observations and 249 variables:
 \item{tb3smffm}{3-Month Treasury Minus Fed Funds Rate Spread}
 \item{t5yffm}{5-Year Treasury Minus Fed Funds Rate Spread}
 \item{aaaffm}{Moody's AAA Corporate Bond Minus Fed Funds Rate Spread}
-\item{wpsid62}{Producer Price Index by Commodity for Finished Goods: Consumer}
+\item{wpsid62}{Producer Price Index by Commodity for Finished Goods:
+Consumer}
 \item{ppicmm}{Producer Price Index: Commodities}
 \item{cpiappsl}{Consumer Price Index for All Urban Consumers}
 \item{cpitrnsl}{CPI: Transportation}
@@ -241,16 +246,21 @@ A data frame with 236 observations and 249 variables:
 \item{nasdaqcom}{NASDAQ Composite Index}
 \item{cusr0000sehc}{CPI for All Urban Consumers: Education}
 \item{tlbsnncbx}{Total Liabilities for Nonfinancial Corporate Business}
-\item{tlbsnncbbdix}{Total Liabilities for Nonfinancial Corporate Business, Billion Dollars}
+\item{tlbsnncbbdix}{Total Liabilities for Nonfinancial Corporate Business,
+Billion Dollars}
 \item{ttaabsnncbx}{Total Assets for Nonfinancial Corporate Business}
 \item{tnwmvbsnncbx}{Total Net Worth for Nonfinancial Corporate Business}
-\item{tnwmvbsnncbbdix}{Total Net Worth for Nonfinancial Corporate Business, Billion Dollars}
+\item{tnwmvbsnncbbdix}{Total Net Worth for Nonfinancial Corporate Business,
+Billion Dollars}
 \item{tlbsnnbx}{Total Liabilities for Nonfinancial Noncorporate Business}
-\item{tlbsnnbbdix}{Total Liabilities for Nonfinancial Noncorporate Business, Billion Dollars}
+\item{tlbsnnbbdix}{Total Liabilities for Nonfinancial Noncorporate
+Business, Billion Dollars}
 \item{tabsnnbx}{Total Assets for Nonfinancial Noncorporate Business}
 \item{tnwbsnnbx}{Total Net Worth for Nonfinancial Noncorporate Business}
-\item{tnwbsnnbbdix}{Total Net Worth for Nonfinancial Noncorporate Business, Billion Dollars}
-\item{cncfx}{Real Personal Consumption Expenditures: Non-Durables and Durables}
+\item{tnwbsnnbbdix}{Total Net Worth for Nonfinancial Noncorporate Business,
+Billion Dollars}
+\item{cncfx}{Real Personal Consumption Expenditures: Non-Durables and
+Durables}
 \item{sp500}{S&P 500 Index}
 \item{spindust}{S&P Industrial Index}
 \item{spdivyield}{S&P Dividend Yield}
@@ -259,15 +269,22 @@ A data frame with 236 observations and 249 variables:
 }
 }
 \source{
-McCracken, M. W., & Ng, S. "FRED-QD: A Quarterly Database for Macroeconomic Research." Data available at \url{https://research.stlouisfed.org/econ/mccracken/fred-databases/}
+McCracken, M. W., & Ng, S. "FRED-QD: A Quarterly Database for
+Macroeconomic Research." Data available at
+\url{https://research.stlouisfed.org/econ/mccracken/fred-databases/}
 }
 \usage{
 fred_qd
 }
 \description{
-Quarterly collection of major U.S. macroeconomic variables maintained by the St. Louis Federal Reserve Bank. This dataset provides key economic indicators across sectors such as output, labor, housing, consumption, interest rates, money, productivity, prices, and exchange rates. Includes data from 1959 onward.
+Quarterly collection of major U.S. macroeconomic variables maintained by the
+St. Louis Federal Reserve Bank. This dataset provides key economic indicators
+across sectors such as output, labor, housing, consumption, interest rates,
+money, productivity, prices, and exchange rates. Includes data from 1959
+onward.
 }
 \details{
-Most of the variables are provided in the most basic format, so transformations are required for typical uses (e.g., for growth rates).
+Most of the variables are provided in the most basic format, so
+transformations are required for typical uses (e.g., for growth rates).
 }
 \keyword{datasets}

@@ -71,11 +71,6 @@
     
     
 <div class="section level2">
-<h2 id="datasets">Datasets<a class="anchor" aria-label="anchor" href="#datasets"></a>
-</h2>
-<p>The datasets were already processed and tidied following the steps in the original code by Professor Hansen. The goal is to go directly to writing functions in C++.</p>
-</div>
-<div class="section level2">
 <h2 id="notation">Notation<a class="anchor" aria-label="anchor" href="#notation"></a>
 </h2>
 <p>In the textbook, the notation is of the form:</p>
@@ -108,17 +103,26 @@ Y_i = \beta_0 + \beta_1 X_{i1} + \beta_2 X_{i2} + \ldots + \beta_k X_{ik} + e_i.
   return as_[R data type](result);
 }</code></pre>
 <p>This allows to reuse functions in the C++ code more easily and also avoids overhead coping data between R and C++ multiple times.</p>
-<p>Please look at the code in the ‘src’ folder.</p>
-<p>The actual code uses a header used across all the scripts in order to avoid importing the libraries multiple times and it allows us to use the <code>ols_</code> function across all the scripts.</p>
-<p>The header is:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;cpp11.hpp&gt;</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;cpp11armadillo.hpp&gt;</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;unordered_map&gt;</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true"></a></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true"></a><span class="kw">using</span> <span class="kw">namespace</span> arma;</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true"></a><span class="kw">using</span> <span class="kw">namespace</span> cpp11;</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true"></a></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true"></a>Mat&lt;<span class="dt">double</span>&gt; <span class="va">ols_</span>(<span class="at">const</span> Mat&lt;<span class="dt">double</span>&gt;&amp; Y, <span class="at">const</span> Mat&lt;<span class="dt">double</span>&gt;&amp; X);</span></code></pre></div>
+<p>The functions must be exposed and documented so that these can be used by the end-user:</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co">#' Add Title</span></span>
+<span><span class="co">#' @param a Description</span></span>
+<span><span class="co">#' @param b Description</span></span>
+<span><span class="co">#' @return matrix, vector, etc containing the result</span></span>
+<span><span class="co">#' @export</span></span>
+<span><span class="va">my_function</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">a</span>, <span class="va">b</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="fu">my_function_r_</span><span class="op">(</span><span class="va">a</span>, <span class="va">b</span><span class="op">)</span></span>
+<span><span class="op">}</span></span></code></pre></div>
+<p>Please look at the code in the ‘R’ and ‘src’ folders in the package <a href="https://github.com/pachadotdev/hansen" class="external-link">repository</a>.</p>
+<p>The code uses a header used across all the scripts in order to avoid importing the libraries multiple times and it allows us to use the <code>ols_</code> function across all the scripts. The header is:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;cpp11.hpp&gt;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;cpp11armadillo.hpp&gt;</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;unordered_map&gt;</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true"></a><span class="kw">using</span> <span class="kw">namespace</span> arma;</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true"></a><span class="kw">using</span> <span class="kw">namespace</span> cpp11;</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true"></a>Mat&lt;<span class="dt">double</span>&gt; <span class="va">ols_</span>(<span class="at">const</span> Mat&lt;<span class="dt">double</span>&gt;&amp; Y, <span class="at">const</span> Mat&lt;<span class="dt">double</span>&gt;&amp; X);</span></code></pre></div>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside>

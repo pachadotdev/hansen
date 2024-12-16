@@ -18,8 +18,14 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 <!-- badges: end -->
 
+## Overview
+
 The goal of hansen is to provide the datasets used in the exercises of the book
 *Econometrics* by Bruce E. Hansen following the Tidy Data principles.
+
+The datasets were already processed and tidied following the steps in the
+original code by Professor Hansen. The goal is to go directly to writing
+functions in C++.
 
 ## Installation
 

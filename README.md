@@ -7,9 +7,15 @@
 
 <!-- badges: end -->
 
+## Overview
+
 The goal of hansen is to provide the datasets used in the exercises of
 the book *Econometrics* by Bruce E. Hansen following the Tidy Data
 principles.
+
+The datasets were already processed and tidied following the steps in
+the original code by Professor Hansen. The goal is to go directly to
+writing functions in C++.
 
 ## Installation
 
@@ -27,6 +33,11 @@ analysis:
 
 ``` r
 library(hansen)
+#> 
+#> Attaching package: 'hansen'
+#> The following object is masked from 'package:stats':
+#> 
+#>     influence
 
 str(mrw1992)
 #> Classes 'tbl_df', 'tbl' and 'data.frame':    121 obs. of  10 variables:

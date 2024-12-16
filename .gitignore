@@ -11,3 +11,4 @@ dev/hansen-codes/
 .vscode
 inst/doc
 src/Makevars
+dev/errata.R

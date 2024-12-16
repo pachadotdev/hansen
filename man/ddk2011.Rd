@@ -23,35 +23,49 @@ A data frame with 5,795 observations and 62 variables.
 \item{agetest}{Age of student at time of test}
 \item{etpteacher}{Indicator if student is assigned to a contract teacher}
 \item{etpteacher_num}{ETP teacher indicator as numeric variable}
-\item{lowstream}{Indicator if student is assigned to lower-ability section (in tracking schools)}
+\item{lowstream}{Indicator if student is assigned to lower-ability section
+(in tracking schools)}
 \item{lowstream_num}{Lowstream indicator as numeric variable}
-\item{stream_meanpercentile}{Mean standardized percentile of classmates at baseline}
-\item{sdstream_std_mark}{Standard deviation of baseline scores within stream (including own score)}
-\item{meanstream_std_mark}{Mean of baseline scores within stream (including own score)}
-\item{bottomhalf}{Indicator if student is in the bottom half of initial distribution}
+\item{stream_meanpercentile}{Mean standardized percentile of classmates at
+baseline}
+\item{sdstream_std_mark}{Standard deviation of baseline scores within
+stream (including own score)}
+\item{meanstream_std_mark}{Mean of baseline scores within stream (including
+own score)}
+\item{bottomhalf}{Indicator if student is in the bottom half of initial
+distribution}
 \item{bottomhalf_num}{Bottomhalf indicator as numeric variable}
-\item{tophalf}{Indicator if student is in the top half of initial distribution}
+\item{tophalf}{Indicator if student is in the top half of initial
+distribution}
 \item{tophalf_num}{Tophalf indicator as numeric variable}
-\item{bottomquarter}{Indicator if student is in the bottom quarter of initial distribution}
+\item{bottomquarter}{Indicator if student is in the bottom quarter of
+initial distribution}
 \item{bottomquarter_num}{Bottomquarter indicator as numeric variable}
-\item{secondquarter}{Indicator if student is in the second quarter of initial distribution}
+\item{secondquarter}{Indicator if student is in the second quarter of
+initial distribution}
 \item{secondquarter_num}{Secondquarter indicator as numeric variable}
-\item{thirdquarter}{Indicator if student is in the third quarter of initial distribution}
+\item{thirdquarter}{Indicator if student is in the third quarter of initial
+distribution}
 \item{thirdquarter_num}{Thirdquarter indicator as numeric variable}
-\item{topquarter}{Indicator if student is in the top quarter of initial distribution}
+\item{topquarter}{Indicator if student is in the top quarter of initial
+distribution}
 \item{topquarter_num}{Topquarter indicator as numeric variable}
 \item{std_mark}{Student's standardized mark in baseline exam}
 \item{percentile}{Student’s percentile in initial distribution}
-\item{realpercentile}{Student’s percentile in initial distribution (integer values)}
+\item{realpercentile}{Student’s percentile in initial distribution (integer
+values)}
 \item{quantile5p}{Student's 20-quantile at baseline}
-\item{attrition}{Indicator if student was absent for endline test (Fall 2006)}
+\item{attrition}{Indicator if student was absent for endline test (Fall
+2006)}
 \item{attrition_num}{Attrition indicator as numeric variable}
 \item{wordscore}{Endline score on word recognition (max: 24)}
 \item{sentscore}{Endline score on sentence recognition (max: 40)}
 \item{letterscore}{Endline score on letter recognition (max: 70)}
 \item{spellscore}{Endline score on spelling (max: 10)}
-\item{sentscore24}{Rescaled endline score on sentence recognition (0-24 scale)}
-\item{letterscore24}{Rescaled endline score on letter recognition (0-24 scale)}
+\item{sentscore24}{Rescaled endline score on sentence recognition (0-24
+scale)}
+\item{letterscore24}{Rescaled endline score on letter recognition (0-24
+scale)}
 \item{spellscore24}{Rescaled endline score on spelling (0-24 scale)}
 \item{litscore}{Total endline score on literacy test}
 \item{additions_score}{Endline score on additions section}
@@ -59,34 +73,50 @@ A data frame with 5,795 observations and 62 variables.
 \item{multiplications_score}{Endline score on multiplications section}
 \item{mathscoreraw}{Total endline score on math test}
 \item{totalscore}{Total endline score}
-\item{rmeanstream_std_baselinemark}{Peers' mean score at baseline, excluding own score}
-\item{rsdstream_std_baselinemark}{Peers' standard deviation in baseline score, excluding own score}
-\item{rmeanstream_std_total}{Peers' mean total score at endline (Fall 2006)}
-\item{rsdstream_std_total}{Peers' standard deviation in total score at endline}
+\item{rmeanstream_std_baselinemark}{Peers' mean score at baseline,
+excluding own score}
+\item{rsdstream_std_baselinemark}{Peers' standard deviation in baseline
+score, excluding own score}
+\item{rmeanstream_std_total}{Peers' mean total score at endline (Fall
+2006)}
+\item{rsdstream_std_total}{Peers' standard deviation in total score at
+endline}
 \item{rmeanstream_std_math}{Peers' mean math score at endline}
-\item{rsdstream_std_math}{Peers' standard deviation in math score at endline}
+\item{rsdstream_std_math}{Peers' standard deviation in math score at
+endline}
 \item{rmeanstream_std_lit}{Peers' mean literacy score at endline}
-\item{rsdstream_std_lit}{Peers' standard deviation in literacy score at endline}
-\item{r2_attrition}{Indicator if student was absent at long-term follow-up test (Fall 2007)}
+\item{rsdstream_std_lit}{Peers' standard deviation in literacy score at
+endline}
+\item{r2_attrition}{Indicator if student was absent at long-term follow-up
+test (Fall 2007)}
 \item{r2_attrition_num}{R2 attrition indicator as numeric variable}
 \item{r2_age}{Age of student at long-term follow-up test}
 \item{r2_wordscore}{Score on word recognition at long-term follow-up}
 \item{r2_sentscore}{Score on sentence recognition at long-term follow-up}
 \item{r2_letterscore}{Score on letter recognition at long-term follow-up}
 \item{r2_spellscore}{Score on spelling at long-term follow-up}
-\item{r2_sentscore24}{Rescaled score on sentence recognition at long-term follow-up}
-\item{r2_letterscore24}{Rescaled score on letter recognition at long-term follow-up}
+\item{r2_sentscore24}{Rescaled score on sentence recognition at long-term
+follow-up}
+\item{r2_letterscore24}{Rescaled score on letter recognition at long-term
+follow-up}
 \item{r2_spellscore24}{Rescaled score on spelling at long-term follow-up}
 \item{r2_litscore}{Total literacy score at long-term follow-up}
 \item{r2_mathscoreraw}{Total math score at long-term follow-up}
-\item{r2_additions_score}{Score on additions section at long-term follow-up}
-\item{r2_substractions_score}{Score on subtractions section at long-term follow-up}
-\item{r2_multiplications_score}{Score on multiplications section at long-term follow-up}
+\item{r2_additions_score}{Score on additions section at long-term
+follow-up}
+\item{r2_substractions_score}{Score on subtractions section at long-term
+follow-up}
+\item{r2_multiplications_score}{Score on multiplications section at
+long-term follow-up}
 \item{r2_totalscore}{Total score at long-term follow-up}
 }
 }
 \source{
-Duflo, E., Dupas, P., & Kremer, M. (2011). "Peer Effects, Teacher Incentives, and the Impact of Tracking: Evidence from a Randomized Evaluation in Kenya." \emph{American Economic Review}, 101(5), 1739-1774. Data available at \url{https://dataverse.harvard.edu/dataset.xhtml?persistentId=hdl:1902.1/16787}
+Duflo, E., Dupas, P., & Kremer, M. (2011). "Peer Effects, Teacher
+Incentives, and the Impact of Tracking: Evidence from a Randomized
+Evaluation in Kenya." \emph{American Economic Review}, 101(5), 1739-1774. Data
+available at
+\url{https://dataverse.harvard.edu/dataset.xhtml?persistentId=hdl:1902.1/16787}
 }
 \usage{
 ddk2011

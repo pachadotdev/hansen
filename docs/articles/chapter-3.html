@@ -96,108 +96,112 @@
 <span><span class="co">#&gt; [1] 268  18</span></span></code></pre></div>
 </div>
 <div class="section level2">
-<h2 id="first-regression">First regression<a class="anchor" aria-label="anchor" href="#first-regression"></a>
+<h2 id="equation-3-12">Equation 3.12<a class="anchor" aria-label="anchor" href="#equation-3-12"></a>
 </h2>
 <p>The C++ code for the OLS estimator is as follows:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>Mat&lt;<span class="dt">double</span>&gt; <span class="va">ols_</span>(<span class="at">const</span> Mat&lt;<span class="dt">double</span>&gt;&amp; Y, <span class="at">const</span> Mat&lt;<span class="dt">double</span>&gt;&amp; X) {</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a>  Mat&lt;<span class="dt">double</span>&gt; XtX = X.t() * X;             <span class="co">// X'X</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a>  Mat&lt;<span class="dt">double</span>&gt; XtX_inv = inv(XtX);          <span class="co">// (X'X)^(-1)</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true"></a>  Mat&lt;<span class="dt">double</span>&gt; beta = XtX_inv * X.t() * Y;  <span class="co">// (X'X)^(-1)(X'Y)</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true"></a></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true"></a>  <span class="cf">return</span> beta;</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true"></a>}</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true"></a></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true"></a>[[<span class="at">cpp11</span>::<span class="at">register</span>]] doubles_matrix&lt;&gt; <span class="va">ols_r_</span>(<span class="at">const</span> doubles_matrix&lt;&gt;&amp; y,</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true"></a>                                            <span class="at">const</span> doubles_matrix&lt;&gt;&amp; x) {</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true"></a>  Mat&lt;<span class="dt">double</span>&gt; Y = as_Mat(y);  <span class="co">// Col&lt;double&gt; Y = as_Col(y); also works</span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true"></a>  Mat&lt;<span class="dt">double</span>&gt; X = as_Mat(x);</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true"></a>  Mat&lt;<span class="dt">double</span>&gt; beta = <span class="va">ols_</span>(Y, X);</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true"></a>  <span class="cf">return</span> as_doubles_matrix(beta);</span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true"></a>}</span></code></pre></div>
-<p>The function must be exposed and documented so that it can be used by the end-user:</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co">#' OLS estimation</span></span>
-<span><span class="co">#' @param y dependent variable</span></span>
-<span><span class="co">#' @param x independent variables</span></span>
-<span><span class="co">#' @return matrix of OLS estimates</span></span>
-<span><span class="co">#' @export</span></span>
-<span><span class="va">ols</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">y</span>, <span class="va">x</span><span class="op">)</span> <span class="op">{</span></span>
-<span>  <span class="fu">ols_r_</span><span class="op">(</span><span class="va">y</span>, <span class="va">x</span><span class="op">)</span></span>
-<span><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="pp">#include </span><span class="im">"00_main.h"</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a>Mat&lt;<span class="dt">double</span>&gt; <span class="va">ols_</span>(<span class="at">const</span> Mat&lt;<span class="dt">double</span>&gt;&amp; Y, <span class="at">const</span> Mat&lt;<span class="dt">double</span>&gt;&amp; X) {</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true"></a>  Mat&lt;<span class="dt">double</span>&gt; XtX = X.t() * X;             <span class="co">// X'X</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true"></a>  Mat&lt;<span class="dt">double</span>&gt; XtX_inv = inv(XtX);          <span class="co">// (X'X)^(-1)</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true"></a>  Mat&lt;<span class="dt">double</span>&gt; beta = XtX_inv * X.t() * Y;  <span class="co">// (X'X)^(-1)(X'Y)</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true"></a>  <span class="cf">return</span> beta;</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true"></a>}</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true"></a>[[<span class="at">cpp11</span>::<span class="at">register</span>]] doubles_matrix&lt;&gt; <span class="va">ols_r_</span>(<span class="at">const</span> doubles_matrix&lt;&gt;&amp; y,</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true"></a>                                            <span class="at">const</span> doubles_matrix&lt;&gt;&amp; x) {</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true"></a>  Mat&lt;<span class="dt">double</span>&gt; Y = as_Mat(y);  <span class="co">// Col&lt;double&gt; Y = as_Col(y); also works</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true"></a>  Mat&lt;<span class="dt">double</span>&gt; X = as_Mat(x);</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true"></a>  Mat&lt;<span class="dt">double</span>&gt; beta = <span class="va">ols_</span>(Y, X);</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true"></a>  <span class="cf">return</span> as_doubles_matrix(beta);</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true"></a>}</span></code></pre></div>
 <p>Every time you need to test a new function or changes to a function, run <code><a href="https://devtools.r-lib.org/reference/load_all.html" class="external-link">devtools::load_all()</a></code> to load the new function or its changes into the R environment.</p>
 <p>To use the function, it is required to create a model matrix and a response vector:</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">as.matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">dat1</span><span class="op">$</span><span class="va">earnings</span> <span class="op">/</span> <span class="op">(</span><span class="va">dat1</span><span class="op">$</span><span class="va">hours</span> <span class="op">*</span> <span class="va">dat1</span><span class="op">$</span><span class="va">week</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="va">X</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span><span class="op">(</span><span class="fl">1</span>, <span class="va">dat1</span><span class="op">$</span><span class="va">education_num</span><span class="op">)</span></span>
-<span><span class="fu"><a href="../reference/ols.html">ols</a></span><span class="op">(</span><span class="va">y</span>, <span class="va">X</span><span class="op">)</span></span>
-<span><span class="co">#&gt;           [,1]</span></span>
-<span><span class="co">#&gt; [1,] 0.6978150</span></span>
-<span><span class="co">#&gt; [2,] 0.1550389</span></span></code></pre></div>
+<span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span><span class="op">(</span><span class="fl">1</span>, <span class="va">dat1</span><span class="op">$</span><span class="va">education_num</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">equation312</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/ols.html">ols</a></span><span class="op">(</span><span class="va">y</span>, <span class="va">x</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">rownames</a></span><span class="op">(</span><span class="va">equation312</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Intercept"</span>, <span class="st">"Education"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">colnames</a></span><span class="op">(</span><span class="va">equation312</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="st">"Estimate"</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/Round.html" class="external-link">round</a></span><span class="op">(</span><span class="va">equation312</span>, <span class="fl">3</span><span class="op">)</span></span>
+<span><span class="co">#&gt;           Estimate</span></span>
+<span><span class="co">#&gt; Intercept    0.698</span></span>
+<span><span class="co">#&gt; Education    0.155</span></span></code></pre></div>
 </div>
 <div class="section level2">
-<h2 id="second-regression">Second regression<a class="anchor" aria-label="anchor" href="#second-regression"></a>
+<h2 id="equation-3-13">Equation 3.13<a class="anchor" aria-label="anchor" href="#equation-3-13"></a>
 </h2>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">as.matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">dat2</span><span class="op">$</span><span class="va">earnings</span> <span class="op">/</span> <span class="op">(</span><span class="va">dat2</span><span class="op">$</span><span class="va">hours</span> <span class="op">*</span> <span class="va">dat2</span><span class="op">$</span><span class="va">week</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
 <span><span class="va">experience</span> <span class="op">&lt;-</span> <span class="va">dat2</span><span class="op">$</span><span class="va">age</span> <span class="op">-</span> <span class="va">dat2</span><span class="op">$</span><span class="va">education_num</span> <span class="op">-</span> <span class="fl">6</span></span>
 <span><span class="va">experience2</span> <span class="op">&lt;-</span> <span class="op">(</span><span class="va">experience</span><span class="op">^</span><span class="fl">2</span><span class="op">)</span> <span class="op">/</span> <span class="fl">100</span></span>
 <span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span><span class="op">(</span><span class="fl">1</span>, <span class="va">dat2</span><span class="op">$</span><span class="va">education_num</span>, <span class="va">experience</span>, <span class="va">experience2</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">colnames</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"constant"</span>, <span class="st">"education"</span>, <span class="st">"experience"</span>, <span class="st">"experience2"</span><span class="op">)</span></span>
-<span><span class="fu"><a href="../reference/ols.html">ols</a></span><span class="op">(</span><span class="va">y</span>, <span class="va">x</span><span class="op">)</span></span>
-<span><span class="co">#&gt;             [,1]</span></span>
-<span><span class="co">#&gt; [1,]  0.57535630</span></span>
-<span><span class="co">#&gt; [2,]  0.14331647</span></span>
-<span><span class="co">#&gt; [3,]  0.03557892</span></span>
-<span><span class="co">#&gt; [4,] -0.07137808</span></span></code></pre></div>
+<span></span>
+<span><span class="va">equation313</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/ols.html">ols</a></span><span class="op">(</span><span class="va">y</span>, <span class="va">x</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">rownames</a></span><span class="op">(</span><span class="va">equation313</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span>
+<span>  <span class="st">"Intercept"</span>, <span class="st">"Education"</span>, <span class="st">"Experience"</span>,</span>
+<span>  <span class="st">"Experience^2"</span></span>
+<span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">colnames</a></span><span class="op">(</span><span class="va">equation313</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="st">"Estimate"</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/Round.html" class="external-link">round</a></span><span class="op">(</span><span class="va">equation313</span>, <span class="fl">3</span><span class="op">)</span></span>
+<span><span class="co">#&gt;              Estimate</span></span>
+<span><span class="co">#&gt; Intercept       0.575</span></span>
+<span><span class="co">#&gt; Education       0.143</span></span>
+<span><span class="co">#&gt; Experience      0.036</span></span>
+<span><span class="co">#&gt; Experience^2   -0.071</span></span></code></pre></div>
 </div>
 <div class="section level2">
-<h2 id="create-leverage-and-influence">Create leverage and influence<a class="anchor" aria-label="anchor" href="#create-leverage-and-influence"></a>
+<h2 id="influence-page-87">Influence (page 87)<a class="anchor" aria-label="anchor" href="#influence-page-87"></a>
 </h2>
 <p>The influence function can be written in C++ to practice, and it is a good idea to separate the residuals from the leverage to keep the code modular:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a><span class="dt">double</span> <span class="va">influence_</span>(<span class="at">const</span> doubles_matrix&lt;&gt;&amp; y, <span class="at">const</span> doubles_matrix&lt;&gt;&amp; x) {</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true"></a>  Mat&lt;<span class="dt">double</span>&gt; Y = as_Mat(y);</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true"></a>  Mat&lt;<span class="dt">double</span>&gt; X = as_Mat(x);</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true"></a></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true"></a>  Mat&lt;<span class="dt">double</span>&gt; e = Y - (X * <span class="va">ols_</span>(Y, X));</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true"></a>  Mat&lt;<span class="dt">double</span>&gt; XXi = inv(X.t() * X);</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true"></a>  Mat&lt;<span class="dt">double</span>&gt; leverage = sum(X % (X * XXi), <span class="dv">1</span>);</span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true"></a>  Mat&lt;<span class="dt">double</span>&gt; ones = Mat&lt;<span class="dt">double</span>&gt;(Y.n_rows, <span class="dv">1</span>, fill::ones);</span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true"></a>  Mat&lt;<span class="dt">double</span>&gt; d = (leverage % e) / (ones - leverage);</span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true"></a></span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true"></a>  <span class="cf">return</span> as_scalar(max(abs(d)));</span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true"></a>}</span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true"></a></span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true"></a>[[<span class="at">cpp11</span>::<span class="at">register</span>]] <span class="dt">double</span> <span class="va">influence_r_</span>(<span class="at">const</span> doubles_matrix&lt;&gt;&amp; y,</span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true"></a>                                        <span class="at">const</span> doubles_matrix&lt;&gt;&amp; x) {</span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true"></a>  <span class="cf">return</span> <span class="va">influence_</span>(y, x);</span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true"></a>}</span></code></pre></div>
-<p>This function also needs to be exposed and documented:</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co">#' Influence function</span></span>
-<span><span class="co">#' @inheritParams ols</span></span>
-<span><span class="co">#' @return numerical value of influence function</span></span>
-<span><span class="co">#' @export</span></span>
-<span><span class="va">influence</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">y</span>, <span class="va">x</span><span class="op">)</span> <span class="op">{</span></span>
-<span>  <span class="fu">influence_r_</span><span class="op">(</span><span class="va">y</span>, <span class="va">x</span><span class="op">)</span></span>
-<span><span class="op">}</span></span></code></pre></div>
-<p>From now, it will be assumed that the functions need to be exposed and documented for the end-user to use them.</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb5"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a><span class="dt">double</span> <span class="va">influence_</span>(<span class="at">const</span> doubles_matrix&lt;&gt;&amp; y, <span class="at">const</span> doubles_matrix&lt;&gt;&amp; x) {</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a>  Mat&lt;<span class="dt">double</span>&gt; Y = as_Mat(y);</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true"></a>  Mat&lt;<span class="dt">double</span>&gt; X = as_Mat(x);</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true"></a>  Mat&lt;<span class="dt">double</span>&gt; e = Y - (X * <span class="va">ols_</span>(Y, X));</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true"></a>  Mat&lt;<span class="dt">double</span>&gt; XXi = inv(X.t() * X);</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true"></a>  Mat&lt;<span class="dt">double</span>&gt; leverage = sum(X % (X * XXi), <span class="dv">1</span>);</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true"></a>  Mat&lt;<span class="dt">double</span>&gt; ones = Mat&lt;<span class="dt">double</span>&gt;(Y.n_rows, <span class="dv">1</span>, fill::ones);</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true"></a>  Mat&lt;<span class="dt">double</span>&gt; d = (leverage % e) / (ones - leverage);</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true"></a></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true"></a>  <span class="cf">return</span> as_scalar(max(abs(d)));</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true"></a>}</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true"></a></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true"></a>[[<span class="at">cpp11</span>::<span class="at">register</span>]] <span class="dt">double</span> <span class="va">influence_r_</span>(<span class="at">const</span> doubles_matrix&lt;&gt;&amp; y,</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true"></a>                                        <span class="at">const</span> doubles_matrix&lt;&gt;&amp; x) {</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true"></a>  <span class="cf">return</span> <span class="va">influence_</span>(y, x);</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true"></a>}</span></code></pre></div>
+<p>The regression from Equation 3.13 has an influence of:</p>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">max</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html" class="external-link">abs</a></span><span class="op">(</span><span class="fu"><a href="../reference/influence.html">influence</a></span><span class="op">(</span><span class="va">y</span>, <span class="va">x</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] 0.2926396</span></span></code></pre></div>
 </div>
 <div class="section level2">
-<h2 id="regression-with-restricted-sample">Regression with restricted sample<a class="anchor" aria-label="anchor" href="#regression-with-restricted-sample"></a>
+<h2 id="equation-3-49">Equation 3.49<a class="anchor" aria-label="anchor" href="#equation-3-49"></a>
 </h2>
 <p>This is identical to the OLS estimator, but changing the input data:</p>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">x_r</span> <span class="op">&lt;-</span> <span class="va">x</span><span class="op">[</span><span class="va">x</span><span class="op">[</span>, <span class="st">"education"</span><span class="op">]</span> <span class="op">&lt;</span> <span class="fl">45</span>, <span class="op">]</span></span>
-<span><span class="va">y_r</span> <span class="op">&lt;-</span> <span class="va">y</span><span class="op">[</span><span class="va">x</span><span class="op">[</span>, <span class="st">"education"</span><span class="op">]</span> <span class="op">&lt;</span> <span class="fl">45</span>, <span class="op">]</span></span>
-<span><span class="fu"><a href="../reference/ols.html">ols</a></span><span class="op">(</span><span class="va">y_r</span>, <span class="va">x_r</span><span class="op">)</span></span>
-<span><span class="co">#&gt;             [,1]</span></span>
-<span><span class="co">#&gt; [1,]  0.57535630</span></span>
-<span><span class="co">#&gt; [2,]  0.14331647</span></span>
-<span><span class="co">#&gt; [3,]  0.03557892</span></span>
-<span><span class="co">#&gt; [4,] -0.07137808</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">x_r</span> <span class="op">&lt;-</span> <span class="va">x</span><span class="op">[</span><span class="va">x</span><span class="op">[</span>, <span class="st">"experience"</span><span class="op">]</span> <span class="op">&lt;</span> <span class="fl">45</span>, <span class="op">]</span></span>
+<span><span class="va">y_r</span> <span class="op">&lt;-</span> <span class="va">y</span><span class="op">[</span><span class="va">x</span><span class="op">[</span>, <span class="st">"experience"</span><span class="op">]</span> <span class="op">&lt;</span> <span class="fl">45</span>, <span class="op">]</span></span>
+<span></span>
+<span><span class="va">equation349</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/ols.html">ols</a></span><span class="op">(</span><span class="va">y_r</span>, <span class="va">x_r</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">rownames</a></span><span class="op">(</span><span class="va">equation349</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">rownames</a></span><span class="op">(</span><span class="va">equation313</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">colnames</a></span><span class="op">(</span><span class="va">equation349</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">colnames</a></span><span class="op">(</span><span class="va">equation313</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/Round.html" class="external-link">round</a></span><span class="op">(</span><span class="va">equation349</span>, <span class="fl">3</span><span class="op">)</span></span>
+<span><span class="co">#&gt;              Estimate</span></span>
+<span><span class="co">#&gt; Intercept       0.531</span></span>
+<span><span class="co">#&gt; Education       0.144</span></span>
+<span><span class="co">#&gt; Experience      0.043</span></span>
+<span><span class="co">#&gt; Experience^2   -0.095</span></span></code></pre></div>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside>

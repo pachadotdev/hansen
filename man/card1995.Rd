@@ -5,7 +5,8 @@
 \alias{card1995}
 \title{Card (1995) Dataset on College Proximity and Return to Schooling}
 \format{
-A data frame with 3,613 observations and 52 variables. Missing values are coded as NA.
+A data frame with 3,613 observations and 52 variables. Missing values
+are coded as NA.
 \describe{
 \item{id}{Sequential ID, runs from 1 to 5225}
 \item{nearc2}{Grew up near a 2-year college}
@@ -62,12 +63,17 @@ A data frame with 3,613 observations and 52 variables. Missing values are coded 
 }
 }
 \source{
-Card, D. (1995). "Using Geographic Variation in College Proximity to Estimate the Return to Schooling." In L.N. Christofides, E.K. Grant, and R. Swidinsky (Eds.), \emph{Aspects of Labor Market Behaviour: Essays in Honour of John Vanderkamp}. Toronto: University of Toronto Press. Data available at \url{http://davidcard.berkeley.edu/data_sets.html}
+Card, D. (1995). "Using Geographic Variation in College Proximity to
+Estimate the Return to Schooling." In L.N. Christofides, E.K. Grant, and R.
+Swidinsky (Eds.), \emph{Aspects of Labor Market Behaviour: Essays in Honour of
+John Vanderkamp}. Toronto: University of Toronto Press. Data available at
+\url{http://davidcard.berkeley.edu/data_sets.html}
 }
 \usage{
 card1995
 }
 \description{
-Education, earnings, family background, and regional variables from the 1976 cross-section of the National Longitudinal Survey (NLS) of young men.
+Education, earnings, family background, and regional variables from the 1976
+cross-section of the National Longitudinal Survey (NLS) of young men.
 }
 \keyword{datasets}

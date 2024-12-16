@@ -3,9 +3,11 @@
 \docType{data}
 \name{bmn2016}
 \alias{bmn2016}
-\title{Bernheim, Meer, and Novarro (2016) Dataset on Liquor Consumption and Commitment Opportunities}
+\title{Bernheim, Meer, and Novarro (2016) Dataset on Liquor Consumption and
+Commitment Opportunities}
 \format{
-A data frame with 1,722 observations and multiple variables related to liquor sales and policies.
+A data frame with 1,722 observations and multiple variables related
+to liquor sales and policies.
 \describe{
 \item{id}{Unique identifier for each observation}
 \item{state}{State name}
@@ -86,12 +88,19 @@ A data frame with 1,722 observations and multiple variables related to liquor sa
 }
 }
 \source{
-Bernheim, B. D., Meer, J., & Novarro, N. K. (2016). "Do Consumers Exploit Commitment Opportunities? Evidence from Natural Experiments Involving Liquor Consumption." \emph{American Economic Journal: Economic Policy}, 8(1), 41-69. Data available at \url{https://www.aeaweb.org/articles?id=10.1257/pol.20130351}
+Bernheim, B. D., Meer, J., & Novarro, N. K. (2016). "Do Consumers
+Exploit Commitment Opportunities? Evidence from Natural Experiments Involving
+Liquor Consumption." \emph{American Economic Journal: Economic Policy}, 8(1),
+41-69. Data available at
+\url{https://www.aeaweb.org/articles?id=10.1257/pol.20130351}
 }
 \usage{
 bmn2016
 }
 \description{
-Liquor sale hours, alcohol consumption, and related state policies across 47 U.S. states from 1970 to 2007. The dataset includes off-premises and on-premises sales data for beer, wine, and liquor, along with other socioeconomic variables.
+Liquor sale hours, alcohol consumption, and related state policies across
+47 U.S. states from 1970 to 2007. The dataset includes off-premises and
+on-premises sales data for beer, wine, and liquor, along with other
+socioeconomic variables.
 }
 \keyword{datasets}

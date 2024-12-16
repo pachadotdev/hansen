@@ -56,9 +56,10 @@ combined into 9 using the weights given in the Blue Book.}
 }
 }
 \source{
-Arellano, Manual and Bond, Stephen. (1991). "Some Tests of Specification for Panel Data:
-Monte Carlo Evidence and an Application to Employment Equations," \emph{Review of Economic Studies}, 277-297.
-Data available via Stata command \verb{webuse abdata}.
+Arellano, Manual and Bond, Stephen. (1991). "Some Tests of
+Specification for Panel Data: Monte Carlo Evidence and an Application to
+Employment Equations," \emph{Review of Economic Studies}, 277-297. Data available
+via Stata command \verb{webuse abdata}.
 }
 \usage{
 ab1991
@@ -67,24 +68,28 @@ ab1991
 Observations for 140 U.K. companies from 1976 to 1984.
 }
 \details{
-The principal data source used is company accounts from Datastream International which
-provide accounts records of employment and remuneration (i.e., wage bill) for all U.K. quoted
-companies from 1976 onwards. We have used a sample of 140 companies with operations
-mainly in the U.K., whose main activity is manufacturing and for which we have at least 7
-continuous observations during the period 1976-1984. Where more than 7 observations are
-available we have exploited this additional information, so that our sample has the unbalanced
-structure described in Table A1.
+The principal data source used is company accounts from Datastream
+International which provide accounts records of employment and remuneration
+(i.e., wage bill) for all U.K. quoted companies from 1976 onwards. We have
+used a sample of 140 companies with operations mainly in the U.K., whose main
+activity is manufacturing and for which we have at least 7 continuous
+observations during the period 1976-1984. Where more than 7 observations are
+available we have exploited this additional information, so that our sample
+has the unbalanced structure described in Table A1.
 
-As well as requiring at least 7 continuous observations, companies were excluded from our
-sample for a number of reasons. We required complete records on a set of accounting variables
-including gross fixed assets, investment, inventories and sales as well as employment and
-remuneration. Companies that changed the date of their accounting year end by more than a
-few days were excluded, so that our data all refer to 12 month periods. We also excluded
-companies where either employment or one of our constructed measures of real wages, real
-capital, real inventories or real sales jumped by more than a factor of 3 from one year to the
-next. This filter will remove both those companies where data has been recorded erroneously
-and those companies that have experienced major mergers. Finally, we restricted our attention
-to companies that we could allocate to one of 9 broad sub-sectors of manufacturing industry
-using Datastream's breakdown of total sales by product available from 1980 onwards.
+As well as requiring at least 7 continuous observations, companies were
+excluded from our sample for a number of reasons. We required complete
+records on a set of accounting variables including gross fixed assets,
+investment, inventories and sales as well as employment and remuneration.
+Companies that changed the date of their accounting year end by more than a
+few days were excluded, so that our data all refer to 12 month periods. We
+also excluded companies where either employment or one of our constructed
+measures of real wages, real capital, real inventories or real sales jumped
+by more than a factor of 3 from one year to the next. This filter will remove
+both those companies where data has been recorded erroneously and those
+companies that have experienced major mergers. Finally, we restricted our
+attention to companies that we could allocate to one of 9 broad sub-sectors
+of manufacturing industry using Datastream's breakdown of total sales by
+product available from 1980 onwards.
 }
 \keyword{datasets}

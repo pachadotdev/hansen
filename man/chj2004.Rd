@@ -38,12 +38,16 @@ A data frame with 8,685 observations and 28 variables.
 }
 }
 \source{
-Cox, D., Hansen, B. E., & Jimenez, E. (2004). "How responsive are private transfers to income? Evidence from a laissez-faire economy." \emph{Journal of Public Economics}, 88(10), 2193-2219.
+Cox, D., Hansen, B. E., & Jimenez, E. (2004). "How responsive are
+private transfers to income? Evidence from a laissez-faire economy." \emph{Journal
+of Public Economics}, 88(10), 2193-2219.
 }
 \usage{
 chj2004
 }
 \description{
-Private transfers, income sources, and household demographics for urban Filipino households. The dataset contains 8,685 observations, with the top 2\\% of income and observations with negative income removed.
+Private transfers, income sources, and household demographics for urban
+Filipino households. The dataset contains 8,685 observations, with the top
+2\\% of income and observations with negative income removed.
 }
 \keyword{datasets}
